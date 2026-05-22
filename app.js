@@ -1202,7 +1202,7 @@ function renderDailyLessonFromControls() {
     save();
   };
 
-  $("#dailyLesson textarea[data-quiz]").forEach((input) => {
+  $$("#dailyLesson textarea[data-quiz]").forEach((input) => {
     input.addEventListener("input", () => {
       state.dailyQuiz[input.dataset.quiz] = input.value;
       save();
