@@ -877,7 +877,7 @@ const dailyPlan = [
 
 const storeKey = "ozon-training-system-v1";
 const TASK_SYNC_SOURCE = "ozon-training";
-const TASK_SYNC_VERSION = "2026-05-22-v2";
+const TASK_SYNC_VERSION = "2026-05-22-v3";
 const TASK_SYSTEM_URL = "https://lingnnuo.pages.dev";
 const TASK_SYNC_EMAIL_KEY = "ozonTraining.taskSyncEmail";
 let state = JSON.parse(localStorage.getItem(storeKey) || "{}");
@@ -970,6 +970,14 @@ function addWorkdaysToDate(value, workdayOffset) {
     if (!isWeekendDate(next)) added += 1;
   }
   return dateToStr(next);
+}
+
+function previousWorkdayDate(value) {
+  const prev = parseDateOnly(value) || new Date();
+  while (isWeekendDate(prev)) {
+    prev.setDate(prev.getDate() - 1);
+  }
+  return dateToStr(prev);
 }
 
 function renderNavigation() {
@@ -1691,6 +1699,8 @@ function buildTaskSystemPayload(existingData) {
   data.projects = Array.isArray(data.projects) ? data.projects : [];
   data.tasks = Array.isArray(data.tasks) ? data.tasks : [];
   data.categories = Array.isArray(data.categories) ? data.categories : [];
+  data.projects = data.projects.filter((item) => item.source !== TASK_SYNC_SOURCE);
+  data.tasks = data.tasks.filter((item) => item.source !== TASK_SYNC_SOURCE);
 
   const category = getTaskSyncCategory(data);
   const startDate = state.trainingStartDate || getTodayKey();
@@ -1714,20 +1724,22 @@ function buildTaskSystemPayload(existingData) {
 
   const longProjects = [
     ["ozon-project-pre-shipping", "7月18日-8月10日 中国发货前执行", "2026-07-18", "2026-08-10", projectTasks[0]?.items || [], "#0f8a9b"],
-    ["ozon-project-aug-shipping", "8月 中国发货入俄", "2026-08-01", "2026-08-31", projectTasks[1]?.items || [], "#b87918"],
-    ["ozon-project-sep-launch", "9月第1周 本土店铺上线检查", "2026-09-01", "2026-09-07", projectTasks[2]?.items || [], "#2f8f5b"],
+    ["ozon-project-aug-shipping", "8月 中国发货入俄", "2026-08-03", "2026-08-31", projectTasks[1]?.items || [], "#b87918"],
+    ["ozon-project-sep-launch", "9月第1周 本土店铺上线检查", "2026-09-01", "2026-09-04", projectTasks[2]?.items || [], "#2f8f5b"],
     ["ozon-project-sep-optimization", "9月第2-4周 优化复盘", "2026-09-08", "2026-09-30", projectTasks[3]?.items || [], "#7a5ea8"],
   ];
 
   longProjects.forEach(([id, title, start, end, items, color]) => {
+    const projectStart = addWorkdaysToDate(start, 0);
+    const projectEnd = previousWorkdayDate(end);
     upsertBySourceId(
       data.projects,
       buildTaskProject(
         id,
         title,
-        start,
-        end,
-        `培训系统长期推进任务：${items.join("；")}`,
+        projectStart,
+        projectEnd,
+        `培训系统长期推进项目：${items.join("；")}。具体执行项只安排在工作日，周末不安排培训任务。`,
         category.id,
         color
       ),
@@ -1770,7 +1782,7 @@ function buildTaskSystemPayload(existingData) {
   weeklyFocus.forEach((focus, index) => {
     const weekId = index + 1;
     const weekStart = addWorkdaysToDate(startDate, index * 5);
-    const weekEnd = addWorkdaysToDate(startDate, index * 5 + 4);
+    const reviewDate = addWorkdaysToDate(startDate, index * 5 + 4);
     const sourceId = `ozon-weekly-w${weekId}`;
     upsertBySourceId(data.tasks, {
       id: sourceId,
@@ -1780,11 +1792,12 @@ function buildTaskSystemPayload(existingData) {
       startTime: null,
       endTime: null,
       time: null,
-      date: weekStart,
-      startDate: weekStart,
-      endDate: weekEnd,
+      date: reviewDate,
+      startDate: reviewDate,
+      endDate: reviewDate,
       quadrant: 2,
       notes: [
+        `本周学习周期：${weekStart} 至 ${reviewDate}，只按工作日安排。`,
         `本周学习重点：${focus.focus.join("；")}`,
         `易错易混点：${focus.difficulties.join("；")}`,
         `自测问题：${focus.selfCheckQuestions.join("；")}`,

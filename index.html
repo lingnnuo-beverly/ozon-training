@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ozon 8周线上培训系统</title>
-    <link rel="stylesheet" href="./styles.css?v=20260522-task-sync-v3" />
+    <link rel="stylesheet" href="./styles.css?v=20260522-task-sync-v4" />
     <script type="module">
       import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
       window.__taskSupabase = createClient(
@@ -204,7 +204,7 @@
               <button id="taskSyncLogoutBtn" class="secondary">退出登录</button>
               <a class="task-system-link" href="https://lingnnuo.pages.dev" target="_blank" rel="noreferrer">打开任务系统</a>
             </div>
-            <p id="taskSyncStatus" class="task-sync-status">登录后会按开训日生成8周每日任务、周复盘任务和长期推进项目。每日培训和周复盘只排到周一至周五，周末自动跳过。培训系统再次同步会更新同一批任务，不会重复创建。</p>
+            <p id="taskSyncStatus" class="task-sync-status">登录后会按开训日生成8周每日任务、周复盘任务和长期推进项目。每日培训和周复盘只排到周一至周五，周复盘安排在每周最后一个学习日，周末自动跳过。培训系统再次同步会清理旧培训任务并重新生成，不会重复创建。</p>
           </section>
         </section>
 
@@ -500,6 +500,6 @@
       </main>
     </div>
 
-    <script src="./app.js?v=20260522-task-sync-v3"></script>
+    <script src="./app.js?v=20260522-task-sync-v4"></script>
   </body>
 </html>
