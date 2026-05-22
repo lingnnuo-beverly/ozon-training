@@ -877,7 +877,7 @@ const dailyPlan = [
 
 const storeKey = "ozon-training-system-v1";
 const TASK_SYNC_SOURCE = "ozon-training";
-const TASK_SYNC_VERSION = "2026-05-22-v1";
+const TASK_SYNC_VERSION = "2026-05-22-v2";
 const TASK_SYSTEM_URL = "https://lingnnuo.pages.dev";
 const TASK_SYNC_EMAIL_KEY = "ozonTraining.taskSyncEmail";
 let state = JSON.parse(localStorage.getItem(storeKey) || "{}");
@@ -945,6 +945,30 @@ function addDaysToDate(value, days) {
   const base = parseDateOnly(value) || new Date();
   const next = new Date(base);
   next.setDate(next.getDate() + days);
+  return dateToStr(next);
+}
+
+function isWeekendDate(date) {
+  const day = date.getDay();
+  return day === 0 || day === 6;
+}
+
+function nextWorkdayDate(date) {
+  const next = new Date(date);
+  while (isWeekendDate(next)) {
+    next.setDate(next.getDate() + 1);
+  }
+  return next;
+}
+
+function addWorkdaysToDate(value, workdayOffset) {
+  const base = nextWorkdayDate(parseDateOnly(value) || new Date());
+  const next = new Date(base);
+  let added = 0;
+  while (added < workdayOffset) {
+    next.setDate(next.getDate() + 1);
+    if (!isWeekendDate(next)) added += 1;
+  }
   return dateToStr(next);
 }
 
@@ -1670,17 +1694,18 @@ function buildTaskSystemPayload(existingData) {
 
   const category = getTaskSyncCategory(data);
   const startDate = state.trainingStartDate || getTodayKey();
+  const effectiveStartDate = addWorkdaysToDate(startDate, 0);
   const trainingProjectId = "ozon-project-8-week-training";
-  const trainingEnd = addDaysToDate(startDate, 39);
+  const trainingEnd = addWorkdaysToDate(startDate, 39);
 
   upsertBySourceId(
     data.projects,
     buildTaskProject(
       trainingProjectId,
       "Ozon 8周培训与9月上架准备",
-      startDate,
+      effectiveStartDate,
       trainingEnd,
-      "由Ozon培训系统同步生成。培训系统是任务源头，完成状态以培训系统为准。",
+      "由Ozon培训系统同步生成。培训系统是任务源头，完成状态以培训系统为准。排期只使用工作日，周末自动跳过。",
       category.id,
       "#1267a8"
     ),
@@ -1712,7 +1737,7 @@ function buildTaskSystemPayload(existingData) {
 
   dailyPlan.forEach((weekDays, weekIndex) => {
     weekDays.forEach((day, dayIndex) => {
-      const taskDate = addDaysToDate(startDate, weekIndex * 5 + dayIndex);
+      const taskDate = addWorkdaysToDate(startDate, weekIndex * 5 + dayIndex);
       day.tasks.forEach((taskText, taskIndex) => {
         const sourceId = `ozon-daily-w${weekIndex + 1}-d${dayIndex + 1}-task${taskIndex}`;
         const doneKey = `w${weekIndex + 1}-d${dayIndex + 1}-task${taskIndex}`;
@@ -1744,8 +1769,8 @@ function buildTaskSystemPayload(existingData) {
 
   weeklyFocus.forEach((focus, index) => {
     const weekId = index + 1;
-    const weekStart = addDaysToDate(startDate, index * 5);
-    const weekEnd = addDaysToDate(startDate, index * 5 + 4);
+    const weekStart = addWorkdaysToDate(startDate, index * 5);
+    const weekEnd = addWorkdaysToDate(startDate, index * 5 + 4);
     const sourceId = `ozon-weekly-w${weekId}`;
     upsertBySourceId(data.tasks, {
       id: sourceId,
