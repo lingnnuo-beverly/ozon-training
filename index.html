@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ozon 8周线上培训系统</title>
-    <link rel="stylesheet" href="./styles.css?v=20260522-task-sync-v1" />
+    <link rel="stylesheet" href="./styles.css?v=20260522-task-sync-v2" />
     <script type="module">
       import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
       window.__taskSupabase = createClient(
@@ -27,6 +27,7 @@
 
         <nav class="nav" aria-label="主导航">
           <button class="nav-item active" data-view="dashboard">总览</button>
+          <button class="nav-item" data-view="taskSync">任务同步</button>
           <button class="nav-item" data-view="course">教程</button>
           <button class="nav-item" data-view="academy">卖家大学资料</button>
           <button class="nav-item" data-view="daily">每日任务</button>
@@ -67,6 +68,7 @@
               <p>短期目标：8周内能协助完成Ozon上架、竞品分析、商品资料、利润测算和基础运营。长期目标：从运营助理成长为能理解俄罗斯市场、参与新品开发的人。</p>
               <div class="hero-actions">
                 <button id="startTodayBtn" class="primary">从今天任务开始</button>
+                <button id="openTaskSyncBtn" class="secondary">连接任务系统</button>
                 <button id="openGlossaryBtn" class="secondary">先看小白词典</button>
               </div>
             </div>
@@ -126,37 +128,6 @@
             <p class="calm-note">今天不用看完所有页面，也不用碰真实后台。先完成一个闭环：看资料、做任务、写答案、交付一份能被检查的记录。</p>
           </section>
 
-          <section class="panel task-sync-panel">
-            <div class="panel-head">
-              <div>
-                <h3>同步到任务系统</h3>
-                <span>把每日任务、周复盘和长期推进同步到任务系统总看板</span>
-              </div>
-              <span id="taskSyncBadge" class="badge">未登录</span>
-            </div>
-            <div class="task-sync-grid">
-              <label class="sync-field">
-                <span>任务系统账号</span>
-                <input id="taskSyncEmail" type="email" placeholder="任务系统登录邮箱" autocomplete="username" />
-              </label>
-              <label class="sync-field">
-                <span>密码</span>
-                <input id="taskSyncPassword" type="password" placeholder="任务系统密码" autocomplete="current-password" />
-              </label>
-              <label class="sync-field">
-                <span>开训日（Day 1）</span>
-                <input id="trainingStartDate" type="date" />
-              </label>
-            </div>
-            <div class="task-sync-actions">
-              <button id="taskSyncLoginBtn" class="primary">登录任务系统</button>
-              <button id="taskSyncRunBtn" class="secondary">同步培训任务</button>
-              <button id="taskSyncLogoutBtn" class="secondary">退出登录</button>
-              <a class="task-system-link" href="https://lingnnuo.pages.dev" target="_blank" rel="noreferrer">打开任务系统</a>
-            </div>
-            <p id="taskSyncStatus" class="task-sync-status">登录后会按开训日生成8周每日任务、周复盘任务和长期推进项目。培训系统再次同步会更新同一批任务，不会重复创建。</p>
-          </section>
-
           <div class="metrics">
             <article class="metric">
               <span>总体进度</span>
@@ -198,6 +169,43 @@
               <button id="saveNoteBtn" class="primary full">保存今日记录</button>
             </section>
           </div>
+        </section>
+
+        <section id="taskSync" class="view">
+          <section class="panel task-sync-panel task-sync-page">
+            <div class="panel-head">
+              <div>
+                <h3>任务系统账号登录</h3>
+                <span>登录后把每日任务、周复盘和长期推进同步到任务系统总看板</span>
+              </div>
+              <span id="taskSyncBadge" class="badge">未登录</span>
+            </div>
+            <div class="task-sync-intro">
+              <strong>使用流程</strong>
+              <p>1. 使用任务系统同一个邮箱和密码登录。2. 选择员工自己的开训日。3. 点击同步培训任务。4. 打开任务系统查看「Ozon培训」分类。</p>
+            </div>
+            <div class="task-sync-grid">
+              <label class="sync-field">
+                <span>任务系统账号</span>
+                <input id="taskSyncEmail" type="email" placeholder="任务系统登录邮箱" autocomplete="username" />
+              </label>
+              <label class="sync-field">
+                <span>密码</span>
+                <input id="taskSyncPassword" type="password" placeholder="任务系统密码" autocomplete="current-password" />
+              </label>
+              <label class="sync-field">
+                <span>开训日（Day 1）</span>
+                <input id="trainingStartDate" type="date" />
+              </label>
+            </div>
+            <div class="task-sync-actions">
+              <button id="taskSyncLoginBtn" class="primary">登录任务系统</button>
+              <button id="taskSyncRunBtn" class="secondary">同步培训任务</button>
+              <button id="taskSyncLogoutBtn" class="secondary">退出登录</button>
+              <a class="task-system-link" href="https://lingnnuo.pages.dev" target="_blank" rel="noreferrer">打开任务系统</a>
+            </div>
+            <p id="taskSyncStatus" class="task-sync-status">登录后会按开训日生成8周每日任务、周复盘任务和长期推进项目。培训系统再次同步会更新同一批任务，不会重复创建。</p>
+          </section>
         </section>
 
         <section id="course" class="view">
@@ -492,6 +500,6 @@
       </main>
     </div>
 
-    <script src="./app.js?v=20260522-task-sync-v1"></script>
+    <script src="./app.js?v=20260522-task-sync-v2"></script>
   </body>
 </html>

@@ -964,8 +964,10 @@ function renderNavigation() {
       if (view === "dashboard") renderDashboard();
       if (view === "academy") renderAcademy();
       if (view === "ai") renderAi();
+      if (view === "taskSync") renderTaskSyncPanel();
       const titles = {
         dashboard: ["培训总览", "把员工从零基础训练到能参与Ozon上架、运营和选品分析。"],
+        taskSync: ["任务同步", "登录任务系统账号，把培训任务同步到总执行看板。"],
         course: ["8周教程", "参考Ozon卖家大学结构，加入教程正文、官方资料和课后练习。"],
         academy: ["卖家大学资料", "把Ozon官方课程入口、导学摘要和观看窗口集中在系统里。"],
         daily: ["每日任务", "让学习落到真实SKU和运营动作。"],
@@ -1517,6 +1519,7 @@ function loadAcademyCourse(course) {
 
 function bindActions() {
   $("#startTodayBtn").addEventListener("click", () => switchView("daily"));
+  $("#openTaskSyncBtn").addEventListener("click", () => switchView("taskSync"));
   $("#openGlossaryBtn").addEventListener("click", () => switchView("glossary"));
   $("#firstDayDailyBtn").addEventListener("click", () => {
     state.selectedWeek = 1;

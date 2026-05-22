@@ -1217,6 +1217,30 @@ button {
   margin-bottom: 22px;
 }
 
+.task-sync-page {
+  max-width: 980px;
+}
+
+.task-sync-intro {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 14px;
+  border: 1px solid #cce4ef;
+  border-radius: 8px;
+  background: #eef7fb;
+}
+
+.task-sync-intro strong {
+  color: var(--primary);
+}
+
+.task-sync-intro p {
+  margin: 0;
+  color: #344454;
+  line-height: 1.7;
+}
+
 .task-sync-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
