@@ -75,7 +75,7 @@ const weeks = [
       },
       {
         title: "2. 低价竞品不一定值得跟",
-        body: "如果竞品价格很低，要判断它是否本地仓、是否清库存、是否用低价换评价、是否质量较差、是否广告补贴。不能看到低价就跟，否则可能一上架就亏。员工要学会用利润表回答老板：这个价格能不能卖、最多能打几折、广告还能承受多少。",
+        body: "如果竞品价格很低，要判断它是否本地仓、是否清库存、是否用低价换评价、是否质量较差、是否广告补贴。不能看到低价就跟，否则可能一上架就亏。员工要学会用利润表回答负责人：这个价格能不能卖、最多能打几折、广告还能承受多少。",
       },
       {
         title: "3. 促销是利润测试，不是单纯降价",
@@ -166,7 +166,7 @@ const weeks = [
       },
       {
         title: "2. 高风险类目要提前确认",
-        body: "儿童用品、食品接触、电子电器、化妆品、医疗健康、部分汽配等类目，不能只看竞品有人卖就判断安全。竞品能卖不代表我们能卖，也不代表资料完整。需要把疑点列出，让老板、认证服务商或物流方确认。",
+        body: "儿童用品、食品接触、电子电器、化妆品、医疗健康、部分汽配等类目，不能只看竞品有人卖就判断安全。竞品能卖不代表我们能卖，也不代表资料完整。需要把疑点列出，让负责人、认证服务商或物流方确认。",
       },
       {
         title: "3. 侵权风险经常藏在标题和图片里",
@@ -222,7 +222,7 @@ const weeks = [
     tutorial: [
       {
         title: "1. 最终项目要像真实业务决策报告",
-        body: "第8周不是复习周，而是把前7周的内容合成一个可执行项目。老板看完报告后，应该能决定这个SKU是否上线、备多少货、怎么定价、上架后怎么推、最大风险是什么。",
+        body: "第8周不是复习周，而是把前7周的内容合成一个可执行项目。负责人看完报告后，应该能决定这个SKU是否上线、备多少货、怎么定价、上架后怎么推、最大风险是什么。",
       },
       {
         title: "2. 报告必须有结论，不只是资料堆叠",
@@ -239,7 +239,7 @@ const weeks = [
     ],
     exercises: ["选择一个真实SKU完成完整项目报告。", "准备30-60分钟口头汇报。", "提出3个后续改款或新品开发方向。"],
     outputs: ["完整项目报告", "SKU上架资料包", "竞品Top 20表", "新品上架执行表"],
-    checks: ["老板可用报告做决策", "员工能汇报30-60分钟", "能回答价格、物流、合规、买家需求问题"],
+    checks: ["负责人可用报告做决策", "员工能汇报30-60分钟", "能回答价格、物流、合规、买家需求问题"],
     questions: ["为什么选择这个类目？", "Top 20竞品说明了什么？", "我们的价格是否有竞争力？", "新品上架后30天怎么运营？"],
   },
 ];
@@ -250,7 +250,7 @@ const baseDailyTasks = [
   ["俄语词汇", "学习10个商品页、评论、物流或售后相关俄语词。"],
   ["实操任务", "按本周主题完成商品卡、利润、客服、广告、合规或市场分析。"],
   ["自家SKU推进", "把当天学习落到自己的SKU，补资料、查风险、算价格或写卖点。"],
-  ["5行总结", "记录今天学了什么、完成什么、发现什么问题、需要老板确认什么、明天做什么。"],
+  ["5行总结", "记录今天学了什么、完成什么、发现什么问题、需要负责人确认什么、明天做什么。"],
 ];
 
 const projectTasks = [
@@ -258,6 +258,29 @@ const projectTasks = [
   { title: "8月 中国发货入俄", items: ["跟进已发和未发SKU", "记录物流批次、预计到俄时间和入仓安排", "处理异常件", "确认Ozon后台资料准备状态"] },
   { title: "9月第1周 本土店铺上线检查", items: ["检查标题、图片、价格、库存、参数", "确认FBO/FBS/realFBS履约设置", "小预算广告测试", "每天看曝光、点击、转化"] },
   { title: "9月第2-4周 优化复盘", items: ["优化主图、价格、关键词", "筛选有效广告", "判断潜力SKU", "输出首月复盘和补货建议"] },
+];
+
+const longTermStages = [
+  {
+    title: "7月18日-8月10日 发货前准备",
+    dateRange: "2026-07-18 至 2026-08-10",
+    actions: ["SKU最终清单冻结", "图片、包装、说明书确认", "利润表按最新汇率和Ozon费用更新", "入俄合规和平台合规复查", "9月上架优先级排序"],
+  },
+  {
+    title: "8月 发货入俄跟进",
+    dateRange: "2026-08-01 至 2026-08-31",
+    actions: ["跟进已发和未发SKU物流批次", "确认入仓时间和异常件处理", "Ozon 后台资料准备状态核对", "首批 9 月上架资料包定稿"],
+  },
+  {
+    title: "9月第1周 上架检查",
+    dateRange: "2026-09-01 至 2026-09-07",
+    actions: ["核对标题、图片、价格、库存、参数", "确认 FBO/FBS/realFBS 履约设置", "启动小预算广告测试", "每天看曝光、点击、转化"],
+  },
+  {
+    title: "9月第2-4周 优化复盘",
+    dateRange: "2026-09-08 至 2026-09-30",
+    actions: ["优化主图、价格、关键词", "筛选有效广告，淘汰花费高无产出的", "判断潜力 SKU 加推 / 暂停 / 清货", "首月复盘和补货建议"],
+  },
 ];
 
 const resources = [
@@ -356,12 +379,12 @@ const defaultDailyMeta = {
   why: "今天的学习要把官方资料转成可执行动作，避免只看课程、不知道怎么用于自己的SKU。",
   materialFocus: ["这份资料解决什么业务问题？", "它和你们新品上架有什么关系？", "有哪些规则或数据需要记录来源？"],
   outputStandard: "完成后必须留下可检查的产出：表格、SOP、清单、报告或明确结论。",
-  bossCheck: ["你今天看的资料解决什么问题？", "你做出的结论来自哪里？", "这个结论怎么用于我们的SKU？"],
+  riskCheck: ["你今天看的资料解决什么问题？", "你做出的结论来自哪里？", "这个结论怎么用于我们的SKU？"],
 };
 
 const weekPracticeFocus = [
   { output: "平台认知/竞品观察记录", mastery: "能看懂一个Ozon商品页，并说出价格、评价、配送和图片为什么影响下单。", mistakes: ["只收藏链接，不写判断。", "把Ozon当成普通购物网站看，不从卖家视角复盘。", "遇到俄语就跳过，不记录关键词。"] },
-  { output: "商品卡资料草稿/图片需求清单", mastery: "能把一个SKU拆成中文内部资料、俄语标题、类目、属性、图片、卖点和待补资料。", mistakes: ["标题只翻译内部中文品名。", "图片需求只写“拍好看点”，没有说明用途。", "参数没有向工厂或老板确认来源。"] },
+  { output: "商品卡资料草稿/图片需求清单", mastery: "能把一个SKU拆成中文内部资料、俄语标题、类目、属性、图片、卖点和待补资料。", mistakes: ["标题只翻译内部中文品名。", "图片需求只写“拍好看点”，没有说明用途。", "参数没有向工厂或负责人确认来源。"] },
   { output: "利润测算表/价格带判断", mastery: "能说出建议售价、最低售价、促销空间和仍待确认的费用。", mistakes: ["只用采购价算利润。", "看到低价竞品就建议跟价。", "没有把广告、退货和汇率风险留出来。"] },
   { output: "中国发货入俄+本土履约流程图/售后风险清单", mastery: "能从中国包装、头程、入俄、俄罗斯仓、Ozon履约、差评和客服角度提前发现风险。", mistakes: ["把售后问题都归给客服。", "只写俄罗斯本土派送，不写中国段和入俄段。", "差评只翻译，不分类不转动作。"] },
   { output: "广告促销计划/运营日报模板", mastery: "能按曝光、点击、转化和利润判断下一步运营动作。", mistakes: ["认为广告就是加预算。", "促销不看最低售价。", "数据异常时凭感觉改图改价。"] },
@@ -491,7 +514,7 @@ const examples = [
   {
     title: "每日5行总结示例",
     week: "每天",
-    sample: "今天学了商品卡结构；完成3个竞品标题拆解；发现我们SKU缺包装尺寸；需要老板确认是否拍尺寸图；明天补3个SKU参数并提图片需求。",
+    sample: "今天学了商品卡结构；完成3个竞品标题拆解；发现我们SKU缺包装尺寸；需要负责人确认是否拍尺寸图；明天补3个SKU参数并提图片需求。",
     good: "短、具体、有问题、有下一步。",
     mistakes: ["写“今天学了很多”。", "没有业务问题。", "没有明天动作。"],
   },
@@ -508,7 +531,7 @@ const practiceModules = [
     ],
     fields: ["SKU编码", "中文品名", "俄语标题初稿", "类目", "尺寸/重量", "材质", "核心卖点", "图片需求"],
     steps: ["先写商品资料，不急着翻译。", "补齐尺寸、重量、材质和包装。", "把图片需求写成主图、尺寸图、细节图、场景图。", "最后写俄语标题初稿。"],
-    pass: "能让老板不看实物也知道这个SKU上架还缺什么资料。",
+    pass: "能让负责人不看实物也知道这个SKU上架还缺什么资料。",
   },
   {
     id: "pricing",
@@ -590,7 +613,7 @@ const dailyPlan = [
         ["Ozon官方帮助中心", "https://docs.ozon.com/global/"],
       ],
       learn: "不用深入后台操作，但要知道商品、价格、订单、物流、广告、财务、分析分别解决什么问题。",
-      tasks: ["画一张卖家后台模块地图。", "写出每个模块每天可能要看的数据。", "记录3个需要老板确认的后台权限问题。"],
+      tasks: ["画一张卖家后台模块地图。", "写出每个模块每天可能要看的数据。", "记录3个需要负责人确认的后台权限问题。"],
       quiz: ["商品模块和价格模块分别管什么？", "财务模块为什么不能随便操作？", "哪些后台区域属于敏感操作？"],
     },
     {
@@ -683,7 +706,7 @@ const dailyPlan = [
     {
       title: "价格策略汇报",
       materials: [["Ozon费用和佣金", "https://docs.ozon.com/global/en/commissions/ozon-fees/"], ["价格管理", "https://docs.ozon.com/global/prices/"]],
-      learn: "用数据回答老板：建议售价是多少，最低能卖多少，为什么这样定价。",
+      learn: "用数据回答负责人：建议售价是多少，最低能卖多少，为什么这样定价。",
       tasks: ["完成SKU建议售价表。", "完成竞品价格带分析。", "准备周五价格策略汇报。"],
       quiz: ["建议售价和最低售价有什么区别？", "广告费用应该从哪里扣？", "如果汇率变化，哪些表要更新？"],
     },
@@ -767,7 +790,7 @@ const dailyPlan = [
       title: "禁售限售基础",
       materials: [["Ozon官方帮助中心", "https://docs.ozon.com/global/"], ["Ozon Seller入口", "https://seller.ozon.ru/ch/"]],
       learn: "每个SKU上线前都要确认是否禁售限售，不能只看竞品有人卖就判断安全。",
-      tasks: ["查你们类目相关禁售限售疑点。", "给第一批SKU标风险等级。", "列出需要老板确认的问题。"],
+      tasks: ["查你们类目相关禁售限售疑点。", "给第一批SKU标风险等级。", "列出需要负责人确认的问题。"],
       quiz: ["为什么竞品能卖不代表我们能卖？", "禁售限售应该去哪里查？", "风险不确定时怎么办？"],
     },
     {
@@ -885,6 +908,7 @@ state.tasks ||= {};
 state.scores ||= {};
 state.notes ||= {};
 state.dailyQuiz ||= {};
+state.dailyFeedback ||= {};
 state.weeklyAnswers ||= {};
 state.practice ||= {};
 state.skus ||= defaultSkuRows.map((row) => ({ ...row }));
@@ -899,10 +923,10 @@ dailyPlan.forEach((week, weekIndex) => {
     day.why ||= `${weeks[weekIndex].title}需要落到真实业务。今天这一步是为了让你把“看资料”变成“能做一件具体工作”。`;
     day.materialFocus ||= defaultDailyMeta.materialFocus;
     day.outputStandard ||= `不是只完成打卡。今天结束时，你要能拿出对应产出，并用2分钟说清楚：结论是什么、证据在哪里、和我们SKU有什么关系。`;
-    day.bossCheck ||= [
+    day.riskCheck ||= [
       `今天资料里最重要的一条规则或方法是什么？`,
       `你的任务产出能怎样帮助8月中国发货入俄或9月新品上架？`,
-      `如果老板让你明天继续推进，你下一步做什么？`,
+      `如果负责人让你明天继续推进，你下一步做什么？`,
     ];
     day.proof ||= `第${weekIndex + 1}周 Day ${dayIndex + 1} 小考要证明：你不是看过资料，而是能把资料转成判断和动作。`;
     day.duration ||= generatedMeta.duration;
@@ -987,33 +1011,27 @@ function renderNavigation() {
       $$(".nav-item").forEach((item) => item.classList.remove("active"));
       btn.classList.add("active");
       $$(".view").forEach((section) => section.classList.remove("active"));
-      $(`#${view}`).classList.add("active");
-      if (view === "glossary") renderGlossary();
-      if (view === "examples") renderExamples();
+      const el = $(`#${view}`);
+      if (el) el.classList.add("active");
       if (view === "daily") renderDaily();
-      if (view === "practice") renderPractice();
       if (view === "sku") renderSku();
       if (view === "dashboard") renderDashboard();
-      if (view === "academy") renderAcademy();
       if (view === "ai") renderAi();
       if (view === "taskSync") renderTaskSyncPanel();
+      if (view === "assessment") renderAssessment();
+      if (view === "resources") renderResources();
       const titles = {
-        dashboard: ["培训总览", "把员工从零基础训练到能参与Ozon上架、运营和选品分析。"],
-        taskSync: ["任务同步", "登录任务系统账号，把培训任务同步到总执行看板。"],
-        course: ["8周教程", "参考Ozon卖家大学结构，加入教程正文、官方资料和课后练习。"],
-        academy: ["卖家大学资料", "把Ozon官方课程入口、导学摘要和观看窗口集中在系统里。"],
-        daily: ["每日任务", "让学习落到真实SKU和运营动作。"],
-        practice: ["实操训练", "在系统内完成模拟填写、判断和复盘，不进入真实Ozon后台操作。"],
-        sku: ["公司产品", "把培训内容落到中国发货入俄、俄罗斯入仓和9月上架的真实SKU资料。"],
-        glossary: ["基础词典", "纯小白先把这些词看懂，再去看Ozon页面和任务。"],
-        examples: ["示范作业", "照样例理解什么叫合格作业，避免只是填表。"],
-        assessment: ["周复盘", "每周整理学习重点、易错点和自测问题。"],
-        project: ["发货上架", "7月下旬转执行，8月中国发货入俄，9月本土店铺上架。"],
-        ai: ["AI老师", "围绕课程、中国发货入俄、9月上架、SKU、利润、合规和俄罗斯市场提问。"],
-        resources: ["资料库", "官方资料、俄语学习和竞品分析方法。"],
+        dashboard: ["学习台总览", "今天打开看三件事：今日学什么、本周交什么、有问题问AI老师。"],
+        taskSync: ["任务同步", "把培训任务同步到任务系统总执行看板。"],
+        daily: ["每日学习", "先看今天为什么学，再看资料，最后写答案让AI检查。"],
+        sku: ["产品/SKU", "把每天学到的东西落到真实SKU。"],
+        assessment: ["周复盘", "本周学会什么、容易混什么、自测问题。"],
+        ai: ["AI老师", "围绕课程、SKU、利润、合规和俄罗斯市场提问。"],
+        resources: ["资料库", "教程、卖家大学、词典、示范作业、实操训练、官方资料。"],
       };
-      $("#viewTitle").textContent = titles[view][0];
-      $("#viewSubtitle").textContent = titles[view][1];
+      const t = titles[view] || ["", ""];
+      $("#viewTitle").textContent = t[0];
+      $("#viewSubtitle").textContent = t[1];
     });
   });
 }
@@ -1023,57 +1041,702 @@ function switchView(view) {
   if (target) target.click();
 }
 
+function getTrainingScheduleInfo() {
+  const startDate = state.trainingStartDate || getTodayKey();
+  const today = parseDateOnly(getTodayKey());
+  const start = parseDateOnly(startDate) || today;
+  const totalCells = 8 * 5;
+  let computedWeek = 1;
+  let computedDay = 1;
+  let isPast = false;
+  let isFuture = false;
+  let cellIndex = -1;
+  for (let i = 0; i < totalCells; i++) {
+    const cellDate = parseDateOnly(addWorkdaysToDate(startDate, i));
+    if (cellDate && cellDate.getTime() === today.getTime()) {
+      cellIndex = i;
+      break;
+    }
+  }
+  if (cellIndex < 0) {
+    if (today < start) {
+      isFuture = true;
+      cellIndex = 0;
+    } else {
+      isPast = true;
+      cellIndex = totalCells - 1;
+    }
+  }
+  computedWeek = Math.floor(cellIndex / 5) + 1;
+  computedDay = (cellIndex % 5) + 1;
+  return { startDate, today: getTodayKey(), todayDate: today, computedWeek, computedDay, cellIndex, isPast, isFuture };
+}
+
+function getDayKey(weekId, dayId) {
+  return `w${weekId}-d${dayId}`;
+}
+
+function getDayTaskKeys(weekId, dayId) {
+  const day = (dailyPlan[weekId - 1] || [])[dayId - 1];
+  if (!day) return [];
+  return day.tasks.map((_, taskIndex) => `${getDayKey(weekId, dayId)}-task${taskIndex}`);
+}
+
+function isDayCompleted(weekId, dayId) {
+  const keys = getDayTaskKeys(weekId, dayId);
+  if (!keys.length) return false;
+  return keys.every((key) => state.tasks[key]);
+}
+
+function isDayStarted(weekId, dayId) {
+  const keys = getDayTaskKeys(weekId, dayId);
+  return keys.some((key) => state.tasks[key]) || Boolean(state.dailyQuiz[`${getDayKey(weekId, dayId)}-q0`]);
+}
+
+function getDayState(weekId, dayId, info) {
+  const ctx = info || getTrainingScheduleInfo();
+  const cell = (weekId - 1) * 5 + (dayId - 1);
+  const completed = isDayCompleted(weekId, dayId);
+  if (completed) return "done";
+  if (cell === ctx.cellIndex && !ctx.isPast && !ctx.isFuture) return "today";
+  if (cell < ctx.cellIndex || ctx.isPast) return "backlog";
+  return "ahead";
+}
+
+function getDayStateLabel(stateKey) {
+  return ({
+    done: "今日已完成",
+    today: "今日进行中",
+    ahead: "提前学习中",
+    backlog: "待补",
+  })[stateKey] || "";
+}
+
+function countBacklog(info) {
+  const ctx = info || getTrainingScheduleInfo();
+  let backlog = 0;
+  for (let w = 1; w <= 8; w++) {
+    for (let d = 1; d <= 5; d++) {
+      const cell = (w - 1) * 5 + (d - 1);
+      if (cell < ctx.cellIndex && !isDayCompleted(w, d)) backlog++;
+    }
+  }
+  return backlog;
+}
+
+function findFirstBacklog(info) {
+  const ctx = info || getTrainingScheduleInfo();
+  for (let w = 1; w <= 8; w++) {
+    for (let d = 1; d <= 5; d++) {
+      const cell = (w - 1) * 5 + (d - 1);
+      if (cell < ctx.cellIndex && !isDayCompleted(w, d)) return { weekId: w, dayId: d };
+    }
+  }
+  return null;
+}
+
 function renderDashboard() {
+  const info = getTrainingScheduleInfo();
   const totalTasks = dailyPlan.flat().reduce((sum, day) => sum + day.tasks.length, 0);
   const doneTasks = Object.values(state.tasks).filter(Boolean).length;
   const taskPct = percent(doneTasks, totalTasks);
   const reviewedWeeks = Object.values(state.weeklyAnswers || {}).filter((answers) => Object.values(answers || {}).some((answer) => (answer || "").trim().length > 0)).length;
-  const reviewPct = percent(reviewedWeeks, weeks.length);
-  const overall = Math.round(taskPct * 0.85 + reviewPct * 0.15);
-  const end = new Date("2026-07-17T23:59:59");
-  const now = new Date();
-  const daysLeft = Math.max(0, Math.ceil((end - now) / 86400000));
 
-  $("#overallProgress").textContent = `${overall}%`;
-  $("#overallBar").style.width = `${overall}%`;
-  $("#taskCount").textContent = `${doneTasks} / ${totalTasks}`;
-  $("#taskBar").style.width = `${taskPct}%`;
-  $("#weeklyReviewCount").textContent = `${reviewedWeeks} / ${weeks.length}`;
-  $("#weeklyReviewBar").style.width = `${reviewPct}%`;
-  $("#daysLeft").textContent = `${daysLeft}天`;
+  const todayLabel = `第${info.computedWeek}周 Day ${info.computedDay}`;
+  const todayDay = (dailyPlan[info.computedWeek - 1] || [])[info.computedDay - 1];
+  const openedLabel = `第${state.selectedWeek}周 Day ${state.selectedDay}`;
+  const backlog = countBacklog(info);
 
-  $("#timeline").innerHTML = weeks.map((week) => {
-    const weekTasks = dailyPlan[week.id - 1].flatMap((day, dayIndex) => day.tasks.map((_, taskIndex) => `w${week.id}-d${dayIndex + 1}-task${taskIndex}`));
-    const done = weekTasks.filter((key) => state.tasks[key]).length;
-    const status = done === weekTasks.length ? "已完成" : done > 0 ? "进行中" : "未开始";
-    return `
-      <div class="timeline-item">
-        <strong>第${week.id}周</strong>
-        <div>
-          <b>${week.title}</b>
-          <p>${week.dates}</p>
-        </div>
-        <span class="status">${status}</span>
-      </div>
-    `;
-  }).join("");
+  let nextAction = "继续推进当前学习";
+  if (info.isFuture) nextAction = "等待开训日，先看资料库做准备";
+  else if (backlog > 0) {
+    const first = findFirstBacklog(info);
+    if (first) nextAction = `补做 第${first.weekId}周 Day ${first.dayId}`;
+  } else if (todayDay) {
+    nextAction = todayDay.title;
+  }
 
-  const current = weeks.find((week) => week.id === state.selectedWeek) || weeks[0];
-  $("#currentStage").textContent = `第${current.id}周`;
-  $("#stageHint").textContent = current.title;
-  $("#dailyNote").value = state.notes[getTodayKey()] || "";
-  $("#phaseMap").innerHTML = learningPhases.map((phase) => `
-    <article class="phase-card">
-      <span>${phase.weeks}</span>
-      <h4>${phase.title}</h4>
-      <p>${phase.result}</p>
-    </article>
-  `).join("");
+  const dateLabelEl = $("#dashboardDateLabel");
+  if (dateLabelEl) {
+    dateLabelEl.textContent = info.isFuture
+      ? `开训日 ${info.startDate} 之前`
+      : info.isPast
+        ? `${info.today}（已超过8周）`
+        : `${info.today}（${todayLabel}）`;
+  }
+  const heroTitleEl = $("#dashboardHeroTitle");
+  if (heroTitleEl) {
+    heroTitleEl.textContent = todayDay ? `今天的学习：${todayDay.title}` : "今天的学习";
+  }
+  const heroHintEl = $("#dashboardHeroHint");
+  if (heroHintEl) {
+    if (info.isFuture) heroHintEl.textContent = `开训日是 ${info.startDate}，到那一天再开始 Day 1。提前看资料库也可以。`;
+    else if (backlog > 0) heroHintEl.textContent = `有 ${backlog} 天的内容还没补完，可以先补再做今天。也可以提前学明天。`;
+    else heroHintEl.textContent = "今天打开就做今天的事，做完可以开启明天，遇到不懂的就问AI老师。";
+  }
+
+  const setText = (sel, value) => { const el = $(sel); if (el) el.textContent = value; };
+  setText("#statusTodayLabel", todayLabel);
+  setText("#statusOpenLabel", openedLabel);
+  setText("#statusBacklogLabel", String(backlog));
+  setText("#statusNextLabel", nextAction);
+
+  const stageEl = $("#currentStage");
+  if (stageEl) stageEl.textContent = openedLabel;
+  const stageHintEl = $("#stageHint");
+  if (stageHintEl) {
+    const dayObj = (dailyPlan[state.selectedWeek - 1] || [])[state.selectedDay - 1];
+    stageHintEl.textContent = dayObj ? dayObj.title : "今天的学习等你打开";
+  }
+
+  const phaseMapEl = $("#phaseMap");
+  if (phaseMapEl) {
+    phaseMapEl.innerHTML = learningPhases.map((phase) => `
+      <article class="phase-card">
+        <span>${phase.weeks}</span>
+        <h4>${phase.title}</h4>
+        <p>${phase.result}</p>
+      </article>
+    `).join("");
+  }
+
+  const projectEl = $("#projectTasks");
+  if (projectEl) {
+    projectEl.innerHTML = projectTasks.map((group) => `
+      <article class="project-item">
+        <h4>${group.title}</h4>
+        <ul>${group.items.slice(0, 5).map((item) => `<li>${item}</li>`).join("")}</ul>
+      </article>
+    `).join("");
+  }
+
+  renderDashboardSyncMini(info, reviewedWeeks);
   renderTaskSyncPanel();
 }
 
-function renderCourse() {
-  $("#weekList").innerHTML = weeks.map((week) => `
+function renderDashboardSyncMini(info, reviewedWeeks) {
+  const badge = $("#taskSyncMiniBadge");
+  if (badge) {
+    badge.textContent = taskSyncState.user ? "已登录" : "未连接";
+    badge.classList.toggle("ok", Boolean(taskSyncState.user));
+  }
+  const start = $("#syncMiniStart");
+  if (start) start.textContent = info.startDate || "--";
+  const last = $("#syncMiniLast");
+  if (last) last.textContent = state.lastSyncedAt ? new Date(state.lastSyncedAt).toLocaleString() : "未同步";
+  const totalTasks = dailyPlan.flat().reduce((sum, day) => sum + day.tasks.length, 0);
+  const cnt = $("#syncMiniCount");
+  if (cnt) cnt.textContent = `${totalTasks} 个`;
+  const backlog = countBacklog(info);
+  const back = $("#syncMiniBacklog");
+  if (back) back.textContent = `${backlog} 天待补 · ${reviewedWeeks}/8 周复盘`;
+  const runBtn = $("#syncMiniRunBtn");
+  if (runBtn) runBtn.disabled = !taskSyncState.user || taskSyncState.syncing;
+}
+
+function renderList(selector, items) {
+  $(selector).innerHTML = items.map((item) => `<li>${item}</li>`).join("");
+}
+
+function renderDaily() {
+  const wkSelect = $("#dailyWeekSelect");
+  const dySelect = $("#dailyDaySelect");
+  if (!wkSelect || !dySelect) return;
+  wkSelect.innerHTML = weeks.map((week) => `<option value="${week.id}">第${week.id}周：${week.title}</option>`).join("");
+  dySelect.innerHTML = Array.from({ length: 5 }, (_, index) => `<option value="${index + 1}">Day ${index + 1}</option>`).join("");
+  wkSelect.value = String(state.selectedWeek);
+  dySelect.value = String(state.selectedDay);
+
+  wkSelect.onchange = (event) => {
+    state.selectedWeek = Number(event.target.value);
+    state.selectedDay = 1;
+    save();
+    renderResourceCourse();
+    renderDaily();
+    renderAssessment();
+    renderDashboard();
+  };
+
+  dySelect.onchange = () => renderDailyLessonFromControls();
+  dySelect.oninput = () => renderDailyLessonFromControls();
+
+  bindDailyFlexibleNav();
+  renderDailyLessonFromControls();
+}
+
+function bindDailyFlexibleNav() {
+  const prev = $("#goPrevDayBtn");
+  const next = $("#goNextDayBtn");
+  const today = $("#goTodayBtn");
+  if (prev) prev.onclick = () => moveDailyDay(-1);
+  if (next) next.onclick = () => moveDailyDay(1);
+  if (today) today.onclick = () => {
+    const info = getTrainingScheduleInfo();
+    state.selectedWeek = info.computedWeek;
+    state.selectedDay = info.computedDay;
+    save();
+    renderDaily();
+    renderDashboard();
+  };
+}
+
+function moveDailyDay(delta) {
+  let cell = (state.selectedWeek - 1) * 5 + (state.selectedDay - 1) + delta;
+  cell = Math.max(0, Math.min(8 * 5 - 1, cell));
+  state.selectedWeek = Math.floor(cell / 5) + 1;
+  state.selectedDay = (cell % 5) + 1;
+  save();
+  renderDaily();
+  renderDashboard();
+}
+
+function renderDailyLessonFromControls() {
+  const weekValue = Number($("#dailyWeekSelect").value) || state.selectedWeek || 1;
+  const dayValue = Number($("#dailyDaySelect").value) || state.selectedDay || 1;
+  state.selectedWeek = Math.min(Math.max(weekValue, 1), weeks.length);
+  state.selectedDay = Math.min(Math.max(dayValue, 1), 5);
+  $("#dailyWeekSelect").value = String(state.selectedWeek);
+  $("#dailyDaySelect").value = String(state.selectedDay);
+  save();
+
+  const day = dailyPlan[state.selectedWeek - 1][state.selectedDay - 1];
+  const dayKey = getDayKey(state.selectedWeek, state.selectedDay);
+  const info = getTrainingScheduleInfo();
+  const stateKey = getDayState(state.selectedWeek, state.selectedDay, info);
+  const stateLabel = getDayStateLabel(stateKey);
+
+  const tagsEl = $("#dailyStateTags");
+  if (tagsEl) {
+    tagsEl.innerHTML = `<span class="day-state-tag day-state-${stateKey}">${stateLabel}</span>`;
+  }
+
+  const flexHintEl = $("#dailyFlexHint");
+  if (flexHintEl) {
+    if (stateKey === "ahead") flexHintEl.textContent = "提前学习中：今天还没到这一天，可以先看资料和写答案。";
+    else if (stateKey === "backlog") flexHintEl.textContent = "待补：今天日期已过，请在不影响今天的前提下补做。";
+    else if (stateKey === "done") flexHintEl.textContent = "已完成。可以开启明天，或回到今天继续。";
+    else flexHintEl.textContent = "今天进行中：完成全部任务后可以开启明天。";
+  }
+
+  const headTitle = $("#dailyHeadTitle");
+  if (headTitle) headTitle.textContent = `第${state.selectedWeek}周 Day ${state.selectedDay}：${day.title}`;
+  const headHint = $("#dailyHeadHint");
+  if (headHint) headHint.textContent = "先看今天为什么学，再看资料，最后写答案让 AI 检查。";
+
+  const feedbackKey = `${dayKey}-aiFeedback`;
+  state.dailyFeedback ||= {};
+  const savedFeedback = state.dailyFeedback[feedbackKey];
+
+  $("#dailyLesson").innerHTML = `
+    <section class="daily-section daily-first-screen">
+      <span class="badge">第${state.selectedWeek}周 Day ${state.selectedDay}</span>
+      <h4>${day.title}</h4>
+      <div class="daily-first-grid">
+        <article class="daily-first-block">
+          <h5>今天为什么学</h5>
+          <p>${day.why}</p>
+          <p class="daily-first-sub">${day.learn}</p>
+        </article>
+        <article class="daily-first-block">
+          <h5>资料入口</h5>
+          <div class="daily-materials compact">
+            ${day.materials.map(([name, url], index) => `
+              <a href="${url}" target="_blank" rel="noreferrer">
+                <strong>${name}</strong>
+                <span>${day.materialFocus[index] || day.materialFocus[0]}</span>
+              </a>
+            `).join("")}
+          </div>
+        </article>
+        <article class="daily-first-block">
+          <h5>今日完成标准</h5>
+          <p>${day.outputStandard}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="daily-section">
+      <h4>今日任务（最多 3 件）</h4>
+      <div class="tasks">
+        ${day.tasks.slice(0, 3).map((text, index) => {
+          const key = `${dayKey}-task${index}`;
+          return `
+            <label class="task-card">
+              <input type="checkbox" data-task="${key}" ${state.tasks[key] ? "checked" : ""} />
+              <div>
+                <h4>任务 ${index + 1}</h4>
+                <p>${text}</p>
+              </div>
+            </label>
+          `;
+        }).join("")}
+      </div>
+      ${day.tasks.length > 3 ? `
+        <details class="daily-extra">
+          <summary>还有 ${day.tasks.length - 3} 个延伸任务（点击展开）</summary>
+          <div class="tasks">
+            ${day.tasks.slice(3).map((text, index) => {
+              const realIndex = index + 3;
+              const key = `${dayKey}-task${realIndex}`;
+              return `
+                <label class="task-card">
+                  <input type="checkbox" data-task="${key}" ${state.tasks[key] ? "checked" : ""} />
+                  <div>
+                    <h4>延伸 ${realIndex + 1}</h4>
+                    <p>${text}</p>
+                  </div>
+                </label>
+              `;
+            }).join("")}
+          </div>
+        </details>
+      ` : ""}
+    </section>
+
+    <section class="daily-section">
+      <h4>今日小问题（最多 2-3 个）</h4>
+      <p class="quiz-proof">${day.proof}</p>
+      <div class="quiz-list">
+        ${day.quiz.slice(0, 3).map((question, index) => `
+          <label>
+            <span>${index + 1}. ${question}</span>
+            <textarea data-quiz="${dayKey}-q${index}" placeholder="用自己的话写答案，可以引用今天看的资料">${state.dailyQuiz[`${dayKey}-q${index}`] || ""}</textarea>
+          </label>
+        `).join("")}
+      </div>
+      <div class="daily-quiz-actions">
+        <button id="saveQuizBtn" class="primary">保存我的答案</button>
+        <button id="aiCheckAnswerBtn" class="secondary">AI检查我的答案</button>
+        <span id="aiCheckStatus" class="ai-status"></span>
+      </div>
+      <details class="daily-extra">
+        <summary>自查标准 / 参考回答方向（点击展开）</summary>
+        <div class="self-check-hints">
+          <p><b>自查标准：</b>能用自己的话说清楚 1) 这是什么 2) 在 Ozon 哪里看到 3) 工作中怎么用，并且尽量结合公司 SKU。</p>
+          <p><b>参考方向：</b>${day.mastery}</p>
+        </div>
+      </details>
+      <div class="ai-feedback-box" id="dailyAiFeedback">
+        ${savedFeedback ? renderDailyFeedbackHtml(savedFeedback) : `<p class="loading-note">点击"AI检查我的答案"，AI老师会给你反馈：答得好的地方、缺什么、需要确认什么、修改建议。</p>`}
+      </div>
+    </section>
+
+    <section class="daily-section">
+      <h4>今日 5 行总结</h4>
+      <textarea id="dailyFiveLine" class="note small" placeholder="今天学了什么&#10;今天完成了什么&#10;发现的业务问题&#10;需要负责人/服务商/官方资料确认的问题&#10;明天最重要的任务">${state.notes[`${dayKey}-fiveLine`] || ""}</textarea>
+      <button id="saveFiveLineBtn" class="primary">保存今日总结</button>
+    </section>
+
+    <details class="daily-extra-section">
+      <summary>延伸资料、相关词典、示例作业（默认折叠）</summary>
+      <div class="daily-extra-grid">
+        <article>
+          <h5>延伸资料</h5>
+          <ul>${day.materialFocus.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <h5>常见错误</h5>
+          <ul>${day.commonMistakes.map((item) => `<li>${item}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <h5>预计用时 / 交付格式</h5>
+          <p><b>预计用时：</b>${day.duration}</p>
+          <p><b>交付格式：</b>${day.deliverable}</p>
+        </article>
+      </div>
+    </details>
+
+    <details class="daily-extra-section">
+      <summary>风险确认点（费用 / 税务 / 认证 / 禁售 / 侵权 / 物流政策）</summary>
+      <div class="risk-note">
+        <p>遇到这些方向的问题，请以 <b>Ozon 官方文档、服务商和负责人确认为准</b>，不要凭社群经验下判断：</p>
+        <ul>${day.riskCheck.map((item) => `<li>${item}</li>`).join("")}</ul>
+        <p class="risk-tags">常见风险方向：费用 · 税务 · 认证 · 禁售 · 侵权 · 物流政策</p>
+      </div>
+    </details>
+
+    <details class="daily-extra-section">
+      <summary>长期计划关联（这一天对 8 月发货 / 9 月上架的意义）</summary>
+      <div class="long-term-link">
+        <p>${weeks[state.selectedWeek - 1]?.title || ""}是为 8 月中国发货入俄、9 月本土店铺上架做准备。今天的产出会用在：</p>
+        <ul>
+          <li>SKU 资料齐套（图片 / 参数 / 卖点 / 利润）</li>
+          <li>合规和入俄风险清单</li>
+          <li>9 月上架后 30 天运营计划</li>
+        </ul>
+      </div>
+    </details>
+  `;
+
+  $$("#dailyLesson input[type='checkbox']").forEach((input) => {
+    input.addEventListener("change", () => {
+      state.tasks[input.dataset.task] = input.checked;
+      save();
+      renderDashboard();
+      const tagsEl2 = $("#dailyStateTags");
+      const stateKeyNow = getDayState(state.selectedWeek, state.selectedDay, getTrainingScheduleInfo());
+      if (tagsEl2) tagsEl2.innerHTML = `<span class="day-state-tag day-state-${stateKeyNow}">${getDayStateLabel(stateKeyNow)}</span>`;
+    });
+  });
+
+  const saveQuizBtn = $("#saveQuizBtn");
+  if (saveQuizBtn) {
+    saveQuizBtn.onclick = () => {
+      $$("#dailyLesson textarea[data-quiz]").forEach((input) => {
+        state.dailyQuiz[input.dataset.quiz] = input.value;
+      });
+      save();
+      const status = $("#aiCheckStatus");
+      if (status) { status.textContent = "答案已保存到本机。"; status.dataset.kind = "ok"; }
+    };
+  }
+
+  $$("#dailyLesson textarea[data-quiz]").forEach((input) => {
+    input.addEventListener("input", () => {
+      state.dailyQuiz[input.dataset.quiz] = input.value;
+      save();
+    });
+  });
+
+  const fiveLineBtn = $("#saveFiveLineBtn");
+  if (fiveLineBtn) {
+    fiveLineBtn.onclick = () => {
+      const ta = $("#dailyFiveLine");
+      if (ta) {
+        state.notes[`${dayKey}-fiveLine`] = ta.value;
+        state.notes[getTodayKey()] = ta.value;
+        save();
+      }
+    };
+  }
+
+  const aiCheckBtn = $("#aiCheckAnswerBtn");
+  if (aiCheckBtn) {
+    aiCheckBtn.onclick = () => requestDailyAiFeedback();
+  }
+
+  $$("#dailyLesson .ai-shortcut").forEach((btn) => {
+    btn.addEventListener("click", () => openAiWithShortcut(btn.dataset.aiShortcut));
+  });
+}
+
+function renderDailyFeedbackHtml(feedback) {
+  if (!feedback) return "";
+  const time = feedback.savedAt ? new Date(feedback.savedAt).toLocaleString() : "";
+  return `
+    <article class="ai-answer-card">
+      <header>
+        <strong>AI 反馈</strong>
+        <span>${escapeHtml(time)}</span>
+      </header>
+      <div class="ai-answer-body">${formatAiAnswer(feedback.answer)}</div>
+      <p class="ai-warning">风险类问题（费用 / 税务 / 认证 / 禁售 / 侵权 / 物流政策）请以 Ozon 官方、服务商和负责人确认为准。</p>
+    </article>
+  `;
+}
+
+async function requestDailyAiFeedback() {
+  const status = $("#aiCheckStatus");
+  const box = $("#dailyAiFeedback");
+  const dayKey = getDayKey(state.selectedWeek, state.selectedDay);
+  const day = dailyPlan[state.selectedWeek - 1][state.selectedDay - 1];
+
+  $$("#dailyLesson textarea[data-quiz]").forEach((input) => {
+    state.dailyQuiz[input.dataset.quiz] = input.value;
+  });
+  save();
+
+  const answers = day.quiz.slice(0, 3).map((question, index) => {
+    const key = `${dayKey}-q${index}`;
+    return { question, answer: state.dailyQuiz[key] || "" };
+  });
+  if (!answers.some((item) => (item.answer || "").trim().length > 0)) {
+    if (status) { status.textContent = "请先写下你的答案，再让 AI 检查。"; status.dataset.kind = "error"; }
+    return;
+  }
+
+  const skuList = (state.skus || []).filter((sku) => sku.code).map((sku) => `${sku.code} ${sku.name || ""}`).slice(0, 5).join("；");
+  const studentName = (localStorage.getItem(AI_STUDENT_KEY) || "").trim() || "学员";
+  const question = `请帮我检查我在第${state.selectedWeek}周 Day ${state.selectedDay}（${day.title}）的答案。请按下面 5 点回复：1) 答得好的地方；2) 缺少什么、哪些地方太空或没有证据；3) 是否结合了公司 SKU；4) 哪些问题需要负责人/服务商/Ozon 官方资料确认；5) 给出修改建议或修改版本。请用列表，不要写客套话。`;
+  const context = [
+    `本周主题：${weeks[state.selectedWeek - 1]?.title || ""}`,
+    `今日完成标准：${day.outputStandard}`,
+    `参考方向：${day.mastery}`,
+    `公司 SKU：${skuList || "(员工还未填 SKU)"}`,
+    "员工答案：",
+    ...answers.map((item, idx) => `Q${idx + 1}：${item.question}\nA${idx + 1}：${item.answer || "(空)"}`),
+  ].join("\n");
+
+  if (status) { status.textContent = "AI 老师检查中…"; status.dataset.kind = "info"; }
+  if (box) box.innerHTML = `<p class="loading-note">AI 老师正在检查你的答案，请稍等 5-30 秒。</p>`;
+
+  try {
+    const response = await fetch(aiApi("/api/ai/ask"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        studentName,
+        question,
+        weekId: state.selectedWeek,
+        dayId: state.selectedDay,
+        skuCode: "",
+        context,
+        page: "daily-feedback",
+      }),
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      const msg = data.error || `调用失败（HTTP ${response.status}）`;
+      if (box) box.innerHTML = `<p class="ai-error">AI 检查失败：${escapeHtml(msg)}。你的答案已保存到本机，不会丢失。</p>`;
+      if (status) { status.textContent = "AI 检查失败。"; status.dataset.kind = "error"; }
+      return;
+    }
+    const feedback = { answer: data.answer, savedAt: Date.now() };
+    state.dailyFeedback[`${dayKey}-aiFeedback`] = feedback;
+    save();
+    if (box) box.innerHTML = renderDailyFeedbackHtml(feedback);
+    if (status) { status.textContent = "AI 检查完成。"; status.dataset.kind = "ok"; }
+  } catch (error) {
+    if (box) box.innerHTML = `<p class="ai-error">无法连接 AI 老师服务：${escapeHtml(error.message)}。你的答案已保存到本机，不会丢失。</p>`;
+    if (status) { status.textContent = "无法连接后端。"; status.dataset.kind = "error"; }
+  }
+}
+
+function renderAssessment() {
+  $("#weeklyReviewSelect").innerHTML = weeks.map((week) => `<option value="${week.id}">第${week.id}周：${week.title}</option>`).join("");
+  $("#weeklyReviewSelect").value = String(state.selectedWeek);
+  const week = weeks.find((item) => item.id === state.selectedWeek) || weeks[0];
+  const focus = weeklyFocus[state.selectedWeek - 1] || weeklyFocus[0];
+  const review = getWeekReview(state.selectedWeek);
+  const answers = state.weeklyAnswers[state.selectedWeek] || {};
+
+  $("#weeklyFocusSummary").innerHTML = `
+    <article class="weekly-card weekly-head-card">
+      <span class="badge">第${week.id}周</span>
+      <h4>${week.title}</h4>
+      <p>${week.dates}</p>
+    </article>
+    <div class="weekly-progress-grid">
+      <div><b>${review.doneTasks}/${review.taskKeys.length}</b><span>任务完成</span></div>
+      <div><b>${review.answeredQuiz}/${review.quizKeys.length}</b><span>小问题作答</span></div>
+      <div><b>${review.hasPractice ? "已填写" : "未填写"}</b><span>实操记录</span></div>
+      <div><b>${review.hasNote ? "已记录" : "未记录"}</b><span>学习记录</span></div>
+    </div>
+    <section class="weekly-card">
+      <h4>本周学习目标</h4>
+      <ul>${week.goals.map((item) => `<li>${item}</li>`).join("")}</ul>
+    </section>
+    <section class="weekly-card">
+      <h4>本周学会了什么</h4>
+      <ul>${focus.focus.map((item) => `<li>${item}</li>`).join("")}</ul>
+    </section>
+    <section class="weekly-card">
+      <h4>本周交付物</h4>
+      <ul>${week.outputs.map((item) => `<li>${item}</li>`).join("")}</ul>
+    </section>
+  `;
+
+  $("#weeklyDifficulties").innerHTML = focus.difficulties.map((item, index) => `
+    <article class="difficulty-card">
+      <strong>${index + 1}</strong>
+      <p>${item}</p>
+    </article>
+  `).join("");
+
+  const selfCheckList = (focus.selfCheckQuestions || []).slice(0, 4);
+  $("#weeklySelfCheck").innerHTML = selfCheckList.map((question, index) => `
+    <label class="self-check-card">
+      <span>${index + 1}. ${question}</span>
+      <textarea data-weekly-answer="q${index}" placeholder="用自己的话写2-4句，不需要写长篇。">${answers[`q${index}`] || ""}</textarea>
+    </label>
+  `).join("");
+
+  $$("#weeklySelfCheck textarea").forEach((input) => {
+    input.addEventListener("input", saveWeeklyAnswers);
+  });
+
+  $("#weeklyReviewSelect").onchange = (event) => {
+    state.selectedWeek = Number(event.target.value);
+    save();
+    renderResourceCourse();
+    renderDaily();
+    renderAssessment();
+    renderDashboard();
+  };
+
+  renderLongTermStages();
+}
+
+function renderLongTermStages() {
+  const el = $("#longTermStages");
+  if (!el) return;
+  el.innerHTML = longTermStages.map((stage) => `
+    <article class="long-term-card">
+      <header>
+        <strong>${stage.title}</strong>
+        <span>${stage.dateRange}</span>
+      </header>
+      <ul>${stage.actions.map((item) => `<li>${item}</li>`).join("")}</ul>
+      <p class="long-term-foot">具体执行回到「每日学习」页面。</p>
+    </article>
+  `).join("");
+}
+
+function getWeekReview(weekId) {
+  const weekDays = dailyPlan[weekId - 1];
+  const taskKeys = weekDays.flatMap((day, dayIndex) => day.tasks.map((_, taskIndex) => `w${weekId}-d${dayIndex + 1}-task${taskIndex}`));
+  const quizKeys = weekDays.flatMap((day, dayIndex) => day.quiz.map((_, quizIndex) => `w${weekId}-d${dayIndex + 1}-q${quizIndex}`));
+  const doneTasks = taskKeys.filter((key) => state.tasks[key]).length;
+  const answeredQuiz = quizKeys.filter((key) => (state.dailyQuiz[key] || "").trim().length >= 8).length;
+  const hasNote = Object.values(state.notes || {}).some((note) => (note || "").trim().length >= 20);
+  const hasPractice = Object.values(state.practice || {}).some((module) => Object.values(module || {}).some((value) => (value || "").trim().length > 0));
+  return { taskKeys, quizKeys, doneTasks, answeredQuiz, hasNote, hasPractice };
+}
+
+function saveWeeklyAnswers() {
+  state.weeklyAnswers[state.selectedWeek] ||= {};
+  $$("#weeklySelfCheck textarea[data-weekly-answer]").forEach((input) => {
+    state.weeklyAnswers[state.selectedWeek][input.dataset.weeklyAnswer] = input.value;
+  });
+  save();
+  renderDashboard();
+}
+
+function renderResources() {
+  const linksEl = $("#resourceLinks");
+  if (linksEl) linksEl.innerHTML = resources.map(([name, url]) => `<a href="${url}" target="_blank" rel="noreferrer">${name}</a>`).join("");
+
+  const tabs = $$("#resourceTabs .resource-tab");
+  tabs.forEach((tab) => {
+    tab.onclick = () => {
+      const key = tab.dataset.tab;
+      tabs.forEach((t) => t.classList.toggle("active", t === tab));
+      $$(".resource-pane").forEach((pane) => {
+        pane.hidden = pane.dataset.pane !== key;
+      });
+      if (key === "course") renderResourceCourse();
+      if (key === "academy") renderAcademy();
+      if (key === "glossary") renderGlossary();
+      if (key === "examples") renderExamples();
+      if (key === "practice") renderPractice();
+    };
+  });
+
+  const activeTab = tabs.find((t) => t.classList.contains("active")) || tabs[0];
+  if (activeTab) {
+    const key = activeTab.dataset.tab;
+    if (key === "course") renderResourceCourse();
+    if (key === "academy") renderAcademy();
+    if (key === "glossary") renderGlossary();
+    if (key === "examples") renderExamples();
+    if (key === "practice") renderPractice();
+  }
+}
+
+function renderResourceCourse() {
+  const weekListEl = $("#weekList");
+  if (!weekListEl) return;
+  weekListEl.innerHTML = weeks.map((week) => `
     <button class="week-btn ${week.id === state.selectedWeek ? "active" : ""}" data-week="${week.id}">
       <strong>第${week.id}周</strong>
       <span>${week.title}</span>
@@ -1084,7 +1747,7 @@ function renderCourse() {
     btn.addEventListener("click", () => {
       state.selectedWeek = Number(btn.dataset.week);
       save();
-      renderCourse();
+      renderResourceCourse();
       renderDaily();
       renderAssessment();
       renderDashboard();
@@ -1108,235 +1771,6 @@ function renderCourse() {
   renderList("#weekExercises", week.exercises);
   renderList("#weekOutputs", week.outputs);
   renderList("#weekChecks", week.checks);
-}
-
-function renderList(selector, items) {
-  $(selector).innerHTML = items.map((item) => `<li>${item}</li>`).join("");
-}
-
-function renderDaily() {
-  $("#dailyWeekSelect").innerHTML = weeks.map((week) => `<option value="${week.id}">第${week.id}周：${week.title}</option>`).join("");
-  $("#dailyDaySelect").innerHTML = Array.from({ length: 5 }, (_, index) => `<option value="${index + 1}">Day ${index + 1}</option>`).join("");
-  $("#dailyWeekSelect").value = String(state.selectedWeek);
-  $("#dailyDaySelect").value = String(state.selectedDay);
-
-  $("#dailyWeekSelect").onchange = (event) => {
-    state.selectedWeek = Number(event.target.value);
-    state.selectedDay = 1;
-    save();
-    renderCourse();
-    renderDaily();
-    renderAssessment();
-    renderDashboard();
-  };
-
-  $("#dailyDaySelect").onchange = () => {
-    renderDailyLessonFromControls();
-  };
-  $("#dailyDaySelect").oninput = () => {
-    renderDailyLessonFromControls();
-  };
-
-  renderDailyLessonFromControls();
-}
-
-function renderDailyLessonFromControls() {
-  const weekValue = Number($("#dailyWeekSelect").value) || state.selectedWeek || 1;
-  const dayValue = Number($("#dailyDaySelect").value) || state.selectedDay || 1;
-  state.selectedWeek = Math.min(Math.max(weekValue, 1), weeks.length);
-  state.selectedDay = Math.min(Math.max(dayValue, 1), 5);
-  $("#dailyWeekSelect").value = String(state.selectedWeek);
-  $("#dailyDaySelect").value = String(state.selectedDay);
-  save();
-
-  const day = dailyPlan[state.selectedWeek - 1][state.selectedDay - 1];
-  const dayKey = `w${state.selectedWeek}-d${state.selectedDay}`;
-  $("#dailyLesson").innerHTML = `
-    <section class="daily-section">
-      <span class="badge">第${state.selectedWeek}周 Day ${state.selectedDay}</span>
-      <h4>${day.title}</h4>
-      <p>${day.learn}</p>
-    </section>
-    <section class="daily-section daily-why">
-      <h4>今天为什么学这个</h4>
-      <p>${day.why}</p>
-    </section>
-    <section class="daily-section">
-      <h4>今日学习闭环</h4>
-      <div class="daily-meta-grid">
-        <div><b>预计用时</b><p>${day.duration}</p></div>
-        <div><b>交付格式</b><p>${day.deliverable}</p></div>
-        <div><b>学会的表现</b><p>${day.mastery}</p></div>
-        <div><b>常见错误</b><ul>${day.commonMistakes.map((item) => `<li>${item}</li>`).join("")}</ul></div>
-      </div>
-    </section>
-    <section class="daily-section">
-      <h4>今日指定资料</h4>
-      <div class="daily-materials">
-        ${day.materials.map(([name, url], index) => `
-          <a href="${url}" target="_blank" rel="noreferrer">
-            <strong>${name}</strong>
-            <span>${day.materialFocus[index] || day.materialFocus[0]}</span>
-          </a>
-        `).join("")}
-      </div>
-    </section>
-    <section class="daily-section">
-      <h4>今日任务</h4>
-      <div class="tasks">
-        ${day.tasks.map((text, index) => {
-          const key = `${dayKey}-task${index}`;
-          return `
-            <label class="task-card">
-              <input type="checkbox" data-task="${key}" ${state.tasks[key] ? "checked" : ""} />
-              <div>
-                <h4>任务 ${index + 1}</h4>
-                <p>${text}</p>
-              </div>
-            </label>
-          `;
-        }).join("")}
-      </div>
-    </section>
-    <section class="daily-section standard-card">
-      <h4>今天合格标准</h4>
-      <p>${day.outputStandard}</p>
-    </section>
-    <section class="daily-section">
-      <h4>当天小考</h4>
-      <p class="quiz-proof">${day.proof}</p>
-      <div class="quiz-list">
-        ${day.quiz.map((question, index) => `
-          <label>
-            <span>${index + 1}. ${question}</span>
-            <textarea data-quiz="${dayKey}-q${index}" placeholder="员工在这里写答案">${state.dailyQuiz[`${dayKey}-q${index}`] || ""}</textarea>
-          </label>
-        `).join("")}
-      </div>
-      <button id="saveQuizBtn" class="primary">保存当天小考</button>
-    </section>
-    <section class="daily-section boss-check">
-      <h4>老板可抽问</h4>
-      <ul>${day.bossCheck.map((item) => `<li>${item}</li>`).join("")}</ul>
-    </section>
-  `;
-
-  $$("#dailyLesson input[type='checkbox']").forEach((input) => {
-    input.addEventListener("change", () => {
-      state.tasks[input.dataset.task] = input.checked;
-      save();
-      renderDashboard();
-    });
-  });
-
-  $("#saveQuizBtn").onclick = () => {
-    $$("#dailyLesson textarea[data-quiz]").forEach((input) => {
-      state.dailyQuiz[input.dataset.quiz] = input.value;
-    });
-    save();
-  };
-
-  $$("#dailyLesson textarea[data-quiz]").forEach((input) => {
-    input.addEventListener("input", () => {
-      state.dailyQuiz[input.dataset.quiz] = input.value;
-      save();
-    });
-  });
-}
-
-function renderAssessment() {
-  $("#weeklyReviewSelect").innerHTML = weeks.map((week) => `<option value="${week.id}">第${week.id}周：${week.title}</option>`).join("");
-  $("#weeklyReviewSelect").value = String(state.selectedWeek);
-  const week = weeks.find((item) => item.id === state.selectedWeek) || weeks[0];
-  const focus = weeklyFocus[state.selectedWeek - 1] || weeklyFocus[0];
-  const review = getWeekReview(state.selectedWeek);
-  const answers = state.weeklyAnswers[state.selectedWeek] || {};
-
-  $("#weeklyFocusSummary").innerHTML = `
-    <article class="weekly-card weekly-head-card">
-      <span class="badge">第${week.id}周</span>
-      <h4>${week.title}</h4>
-      <p>${week.dates}</p>
-    </article>
-    <div class="weekly-progress-grid">
-      <div><b>${review.doneTasks}/${review.taskKeys.length}</b><span>任务完成</span></div>
-      <div><b>${review.answeredQuiz}/${review.quizKeys.length}</b><span>小考作答</span></div>
-      <div><b>${review.hasPractice ? "已填写" : "未填写"}</b><span>实操记录</span></div>
-      <div><b>${review.hasNote ? "已记录" : "未记录"}</b><span>学习记录</span></div>
-    </div>
-    <section class="weekly-card">
-      <h4>本周学习目标</h4>
-      <ul>${week.goals.map((item) => `<li>${item}</li>`).join("")}</ul>
-    </section>
-    <section class="weekly-card">
-      <h4>本周学习任务重点</h4>
-      <ul>${focus.focus.map((item) => `<li>${item}</li>`).join("")}</ul>
-    </section>
-    <section class="weekly-card">
-      <h4>本周交付物</h4>
-      <ul>${week.outputs.map((item) => `<li>${item}</li>`).join("")}</ul>
-    </section>
-  `;
-
-  $("#weeklyDifficulties").innerHTML = focus.difficulties.map((item, index) => `
-    <article class="difficulty-card">
-      <strong>${index + 1}</strong>
-      <p>${item}</p>
-    </article>
-  `).join("");
-
-  $("#weeklySelfCheck").innerHTML = focus.selfCheckQuestions.map((question, index) => `
-    <label class="self-check-card">
-      <span>${index + 1}. ${question}</span>
-      <textarea data-weekly-answer="q${index}" placeholder="用自己的话写2-4句，不需要写长篇。">${answers[`q${index}`] || ""}</textarea>
-    </label>
-  `).join("");
-
-  $$("#weeklySelfCheck textarea").forEach((input) => {
-    input.addEventListener("input", saveWeeklyAnswers);
-  });
-
-  $("#weeklyReviewSelect").onchange = (event) => {
-    state.selectedWeek = Number(event.target.value);
-    save();
-    renderCourse();
-    renderDaily();
-    renderAssessment();
-    renderDashboard();
-  };
-}
-
-function getWeekReview(weekId) {
-  const weekDays = dailyPlan[weekId - 1];
-  const taskKeys = weekDays.flatMap((day, dayIndex) => day.tasks.map((_, taskIndex) => `w${weekId}-d${dayIndex + 1}-task${taskIndex}`));
-  const quizKeys = weekDays.flatMap((day, dayIndex) => day.quiz.map((_, quizIndex) => `w${weekId}-d${dayIndex + 1}-q${quizIndex}`));
-  const doneTasks = taskKeys.filter((key) => state.tasks[key]).length;
-  const answeredQuiz = quizKeys.filter((key) => (state.dailyQuiz[key] || "").trim().length >= 8).length;
-  const hasNote = Object.values(state.notes || {}).some((note) => (note || "").trim().length >= 20);
-  const hasPractice = Object.values(state.practice || {}).some((module) => Object.values(module || {}).some((value) => (value || "").trim().length > 0));
-  return { taskKeys, quizKeys, doneTasks, answeredQuiz, hasNote, hasPractice };
-}
-
-function saveWeeklyAnswers() {
-  state.weeklyAnswers[state.selectedWeek] ||= {};
-  $$("#weeklySelfCheck textarea[data-weekly-answer]").forEach((input) => {
-    state.weeklyAnswers[state.selectedWeek][input.dataset.weeklyAnswer] = input.value;
-  });
-  save();
-  renderDashboard();
-}
-
-function renderProject() {
-  $("#projectTasks").innerHTML = projectTasks.map((group) => `
-    <article class="project-item">
-      <h4>${group.title}</h4>
-      <ul>${group.items.map((item) => `<li>${item}</li>`).join("")}</ul>
-    </article>
-  `).join("");
-}
-
-function renderResources() {
-  $("#resourceLinks").innerHTML = resources.map(([name, url]) => `<a href="${url}" target="_blank" rel="noreferrer">${name}</a>`).join("");
 }
 
 function renderGlossary() {
@@ -1550,54 +1984,58 @@ function loadAcademyCourse(course) {
 }
 
 function bindActions() {
-  $("#startTodayBtn").addEventListener("click", () => switchView("daily"));
-  $("#openTaskSyncBtn").addEventListener("click", () => switchView("taskSync"));
-  $("#openGlossaryBtn").addEventListener("click", () => switchView("glossary"));
-  $("#firstDayDailyBtn").addEventListener("click", () => {
-    state.selectedWeek = 1;
-    state.selectedDay = 1;
+  const bindClick = (sel, fn) => { const el = $(sel); if (el) el.addEventListener("click", fn); };
+
+  bindClick("#openTodayBtn", () => {
+    const info = getTrainingScheduleInfo();
+    state.selectedWeek = info.computedWeek;
+    state.selectedDay = info.computedDay;
     save();
     switchView("daily");
   });
-  $("#firstDayGlossaryBtn").addEventListener("click", () => switchView("glossary"));
-  $("#firstDaySkuBtn").addEventListener("click", () => switchView("sku"));
-  $("#addSkuBtn").addEventListener("click", () => {
+  bindClick("#openWeeklyBtn", () => switchView("assessment"));
+  bindClick("#openAiBtn", () => switchView("ai"));
+
+  $$(".entry-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const target = card.dataset.entry;
+      if (target === "daily") {
+        const info = getTrainingScheduleInfo();
+        state.selectedWeek = info.computedWeek;
+        state.selectedDay = info.computedDay;
+        save();
+      }
+      if (target) switchView(target);
+    });
+  });
+
+  bindClick("#syncMiniRunBtn", () => syncTrainingTasksToTaskSystem());
+  bindClick("#syncMiniOpenBtn", () => switchView("taskSync"));
+
+  bindClick("#addSkuBtn", () => {
     state.skus.push({ code: "", name: "", category: "", priority: "", competitor: "", dataStatus: "未开始", imageStatus: "未开始", profitStatus: "未开始", complianceStatus: "待确认", launchPriority: "", note: "" });
     save();
     renderSku();
   });
-  $("#saveSkuBtn").addEventListener("click", () => {
-    saveSkuFromDom();
-  });
+  bindClick("#saveSkuBtn", () => saveSkuFromDom());
 
-  $("#saveNoteBtn").addEventListener("click", () => {
-    state.notes[getTodayKey()] = $("#dailyNote").value;
-    save();
-  });
+  bindClick("#saveWeeklyAnswersBtn", () => saveWeeklyAnswers());
 
-  $("#saveWeeklyAnswersBtn").addEventListener("click", () => {
-    saveWeeklyAnswers();
-  });
+  bindClick("#taskSyncLoginBtn", () => loginTaskSystem());
+  bindClick("#taskSyncLogoutBtn", () => logoutTaskSystem());
+  bindClick("#taskSyncRunBtn", () => syncTrainingTasksToTaskSystem());
 
-  $("#taskSyncLoginBtn").addEventListener("click", () => {
-    loginTaskSystem();
-  });
+  const startInput = $("#trainingStartDate");
+  if (startInput) {
+    startInput.addEventListener("change", (event) => {
+      state.trainingStartDate = event.target.value || getTodayKey();
+      save();
+      renderTaskSyncPanel();
+      renderDashboard();
+    });
+  }
 
-  $("#taskSyncLogoutBtn").addEventListener("click", () => {
-    logoutTaskSystem();
-  });
-
-  $("#taskSyncRunBtn").addEventListener("click", () => {
-    syncTrainingTasksToTaskSystem();
-  });
-
-  $("#trainingStartDate").addEventListener("change", (event) => {
-    state.trainingStartDate = event.target.value || getTodayKey();
-    save();
-    renderTaskSyncPanel();
-  });
-
-  $("#exportBtn").addEventListener("click", () => {
+  bindClick("#exportBtn", () => {
     const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
@@ -1606,26 +2044,20 @@ function bindActions() {
     URL.revokeObjectURL(link.href);
   });
 
-  $("#resetBtn").addEventListener("click", () => {
+  bindClick("#resetBtn", () => {
     if (!confirm("确定要重置所有进度、记录和自测答案吗？")) return;
     localStorage.removeItem(storeKey);
-    state = { tasks: {}, scores: {}, notes: {}, dailyQuiz: {}, weeklyAnswers: {}, practice: {}, skus: defaultSkuRows.map((row) => ({ ...row })), selectedWeek: 1, selectedDay: 1, selectedPractice: "listing" };
+    state = { tasks: {}, scores: {}, notes: {}, dailyQuiz: {}, weeklyAnswers: {}, practice: {}, dailyFeedback: {}, skus: defaultSkuRows.map((row) => ({ ...row })), selectedWeek: 1, selectedDay: 1, selectedPractice: "listing", trainingStartDate: getTodayKey() };
     renderAll();
   });
 }
 
 function renderAll() {
   renderDashboard();
-  renderCourse();
   renderDaily();
-  renderPractice();
   renderSku();
   renderAssessment();
-  renderAcademy();
-  renderProject();
   renderResources();
-  renderGlossary();
-  renderExamples();
   renderAi();
   renderTaskSyncPanel();
 }
@@ -1931,6 +2363,9 @@ async function syncTrainingTasksToTaskSystem() {
 
   const syncedTasks = merged.tasks.filter((task) => task.source === TASK_SYNC_SOURCE).length;
   const syncedProjects = merged.projects.filter((project) => project.source === TASK_SYNC_SOURCE).length;
+  state.lastSyncedAt = stamp;
+  save();
+  renderDashboard();
   setTaskSyncStatus(`同步成功：已更新 ${syncedTasks} 个培训任务、${syncedProjects} 个培训项目。打开任务系统并登录同一账号即可查看。`, "ok");
 }
 
