@@ -876,6 +876,10 @@ const dailyPlan = [
 ];
 
 const storeKey = "ozon-training-system-v1";
+const TASK_SYNC_SOURCE = "ozon-training";
+const TASK_SYNC_VERSION = "2026-05-22-v1";
+const TASK_SYSTEM_URL = "https://lingnnuo.pages.dev";
+const TASK_SYNC_EMAIL_KEY = "ozonTraining.taskSyncEmail";
 let state = JSON.parse(localStorage.getItem(storeKey) || "{}");
 state.tasks ||= {};
 state.scores ||= {};
@@ -887,6 +891,7 @@ state.skus ||= defaultSkuRows.map((row) => ({ ...row }));
 state.selectedDay ||= 1;
 state.selectedWeek ||= 1;
 state.selectedPractice ||= "listing";
+state.trainingStartDate ||= getTodayKey();
 
 dailyPlan.forEach((week, weekIndex) => {
   week.forEach((day, dayIndex) => {
@@ -921,6 +926,26 @@ function percent(value, total) {
 
 function getTodayKey() {
   return new Date().toISOString().slice(0, 10);
+}
+
+function dateToStr(date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function parseDateOnly(value) {
+  const [y, m, d] = String(value || "").split("-").map(Number);
+  if (!y || !m || !d) return null;
+  return new Date(y, m - 1, d);
+}
+
+function addDaysToDate(value, days) {
+  const base = parseDateOnly(value) || new Date();
+  const next = new Date(base);
+  next.setDate(next.getDate() + days);
+  return dateToStr(next);
 }
 
 function renderNavigation() {
@@ -1010,6 +1035,7 @@ function renderDashboard() {
       <p>${phase.result}</p>
     </article>
   `).join("");
+  renderTaskSyncPanel();
 }
 
 function renderCourse() {
@@ -1518,6 +1544,24 @@ function bindActions() {
     saveWeeklyAnswers();
   });
 
+  $("#taskSyncLoginBtn").addEventListener("click", () => {
+    loginTaskSystem();
+  });
+
+  $("#taskSyncLogoutBtn").addEventListener("click", () => {
+    logoutTaskSystem();
+  });
+
+  $("#taskSyncRunBtn").addEventListener("click", () => {
+    syncTrainingTasksToTaskSystem();
+  });
+
+  $("#trainingStartDate").addEventListener("change", (event) => {
+    state.trainingStartDate = event.target.value || getTodayKey();
+    save();
+    renderTaskSyncPanel();
+  });
+
   $("#exportBtn").addEventListener("click", () => {
     const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
     const link = document.createElement("a");
@@ -1548,6 +1592,305 @@ function renderAll() {
   renderGlossary();
   renderExamples();
   renderAi();
+  renderTaskSyncPanel();
+}
+
+const taskSyncState = {
+  user: null,
+  ready: false,
+  syncing: false,
+};
+
+function getTaskSupabase() {
+  return window.__taskSupabase || null;
+}
+
+function getTaskSyncCategory(data) {
+  data.categories ||= [];
+  let category = data.categories.find((item) => item.name === "Ozon培训");
+  if (!category) {
+    category = {
+      id: "ozon-training-category",
+      name: "Ozon培训",
+      color: "#1267a8",
+      source: TASK_SYNC_SOURCE,
+      sourceId: "ozon-training-category",
+      sourceVersion: TASK_SYNC_VERSION,
+    };
+    data.categories.push(category);
+  }
+  return category;
+}
+
+function buildTaskProject(id, name, start, end, notes, categoryId, color = "#1267a8") {
+  return {
+    id,
+    name,
+    start,
+    end,
+    color,
+    notes,
+    category: categoryId,
+    source: TASK_SYNC_SOURCE,
+    sourceId: id,
+    sourceVersion: TASK_SYNC_VERSION,
+  };
+}
+
+function upsertBySourceId(list, item, preserveFields = []) {
+  const index = list.findIndex(
+    (existing) => existing.source === TASK_SYNC_SOURCE && existing.sourceId === item.sourceId
+  );
+  if (index >= 0) {
+    const existing = list[index];
+    const merged = { ...existing, ...item };
+    preserveFields.forEach((field) => {
+      if (existing[field] !== undefined) merged[field] = existing[field];
+    });
+    list[index] = merged;
+  } else {
+    if (!("done" in item)) item.done = false;
+    list.push(item);
+  }
+}
+
+function getWeeklyReviewDone(weekId) {
+  const answers = state.weeklyAnswers?.[weekId] || {};
+  return Object.values(answers).some((answer) => (answer || "").trim().length > 0);
+}
+
+function buildTaskSystemPayload(existingData) {
+  const data = existingData && typeof existingData === "object" ? existingData : {};
+  data.projects = Array.isArray(data.projects) ? data.projects : [];
+  data.tasks = Array.isArray(data.tasks) ? data.tasks : [];
+  data.categories = Array.isArray(data.categories) ? data.categories : [];
+
+  const category = getTaskSyncCategory(data);
+  const startDate = state.trainingStartDate || getTodayKey();
+  const trainingProjectId = "ozon-project-8-week-training";
+  const trainingEnd = addDaysToDate(startDate, 39);
+
+  upsertBySourceId(
+    data.projects,
+    buildTaskProject(
+      trainingProjectId,
+      "Ozon 8周培训与9月上架准备",
+      startDate,
+      trainingEnd,
+      "由Ozon培训系统同步生成。培训系统是任务源头，完成状态以培训系统为准。",
+      category.id,
+      "#1267a8"
+    ),
+    ["done"]
+  );
+
+  const longProjects = [
+    ["ozon-project-pre-shipping", "7月18日-8月10日 中国发货前执行", "2026-07-18", "2026-08-10", projectTasks[0]?.items || [], "#0f8a9b"],
+    ["ozon-project-aug-shipping", "8月 中国发货入俄", "2026-08-01", "2026-08-31", projectTasks[1]?.items || [], "#b87918"],
+    ["ozon-project-sep-launch", "9月第1周 本土店铺上线检查", "2026-09-01", "2026-09-07", projectTasks[2]?.items || [], "#2f8f5b"],
+    ["ozon-project-sep-optimization", "9月第2-4周 优化复盘", "2026-09-08", "2026-09-30", projectTasks[3]?.items || [], "#7a5ea8"],
+  ];
+
+  longProjects.forEach(([id, title, start, end, items, color]) => {
+    upsertBySourceId(
+      data.projects,
+      buildTaskProject(
+        id,
+        title,
+        start,
+        end,
+        `培训系统长期推进任务：${items.join("；")}`,
+        category.id,
+        color
+      ),
+      ["done"]
+    );
+  });
+
+  dailyPlan.forEach((weekDays, weekIndex) => {
+    weekDays.forEach((day, dayIndex) => {
+      const taskDate = addDaysToDate(startDate, weekIndex * 5 + dayIndex);
+      day.tasks.forEach((taskText, taskIndex) => {
+        const sourceId = `ozon-daily-w${weekIndex + 1}-d${dayIndex + 1}-task${taskIndex}`;
+        const doneKey = `w${weekIndex + 1}-d${dayIndex + 1}-task${taskIndex}`;
+        upsertBySourceId(data.tasks, {
+          id: sourceId,
+          title: `Ozon培训 第${weekIndex + 1}周 Day ${dayIndex + 1}：${taskText}`,
+          projectId: trainingProjectId,
+          category: category.id,
+          startTime: null,
+          endTime: null,
+          time: null,
+          date: taskDate,
+          quadrant: 2,
+          notes: [
+            `课程：${day.title}`,
+            `学习目标：${day.learn}`,
+            `合格标准：${day.outputStandard || ""}`,
+            `资料：${(day.materials || []).map(([name, url]) => `${name} ${url}`).join("；")}`,
+          ].filter(Boolean).join("\n"),
+          done: Boolean(state.tasks[doneKey]),
+          order: Number(`${weekIndex + 1}${String(dayIndex + 1).padStart(2, "0")}${String(taskIndex).padStart(2, "0")}`),
+          source: TASK_SYNC_SOURCE,
+          sourceId,
+          sourceVersion: TASK_SYNC_VERSION,
+        });
+      });
+    });
+  });
+
+  weeklyFocus.forEach((focus, index) => {
+    const weekId = index + 1;
+    const weekStart = addDaysToDate(startDate, index * 5);
+    const weekEnd = addDaysToDate(startDate, index * 5 + 4);
+    const sourceId = `ozon-weekly-w${weekId}`;
+    upsertBySourceId(data.tasks, {
+      id: sourceId,
+      title: `Ozon培训 第${weekId}周复盘：${weeks[index]?.title || "本周重点"}`,
+      projectId: trainingProjectId,
+      category: category.id,
+      startTime: null,
+      endTime: null,
+      time: null,
+      date: weekStart,
+      startDate: weekStart,
+      endDate: weekEnd,
+      quadrant: 2,
+      notes: [
+        `本周学习重点：${focus.focus.join("；")}`,
+        `易错易混点：${focus.difficulties.join("；")}`,
+        `自测问题：${focus.selfCheckQuestions.join("；")}`,
+      ].join("\n"),
+      done: getWeeklyReviewDone(weekId),
+      order: Number(`9${String(weekId).padStart(2, "0")}`),
+      source: TASK_SYNC_SOURCE,
+      sourceId,
+      sourceVersion: TASK_SYNC_VERSION,
+    });
+  });
+
+  return data;
+}
+
+function setTaskSyncStatus(message, kind = "") {
+  const status = $("#taskSyncStatus");
+  if (status) {
+    status.textContent = message;
+    status.dataset.kind = kind;
+  }
+}
+
+function renderTaskSyncPanel() {
+  const emailInput = $("#taskSyncEmail");
+  const startInput = $("#trainingStartDate");
+  const badge = $("#taskSyncBadge");
+  const loginBtn = $("#taskSyncLoginBtn");
+  const logoutBtn = $("#taskSyncLogoutBtn");
+  const syncBtn = $("#taskSyncRunBtn");
+  if (!emailInput || !startInput || !badge) return;
+
+  if (!emailInput.value) emailInput.value = localStorage.getItem(TASK_SYNC_EMAIL_KEY) || "";
+  startInput.value = state.trainingStartDate || getTodayKey();
+  badge.textContent = taskSyncState.user ? `已登录：${taskSyncState.user.email || "任务账号"}` : "未登录";
+  badge.classList.toggle("ok", Boolean(taskSyncState.user));
+  if (loginBtn) loginBtn.style.display = taskSyncState.user ? "none" : "";
+  if (logoutBtn) logoutBtn.style.display = taskSyncState.user ? "" : "none";
+  if (syncBtn) syncBtn.disabled = !taskSyncState.user || taskSyncState.syncing;
+}
+
+async function initTaskSyncAuth() {
+  const client = getTaskSupabase();
+  if (!client) return;
+  taskSyncState.ready = true;
+  const { data } = await client.auth.getSession();
+  taskSyncState.user = data.session?.user || null;
+  renderTaskSyncPanel();
+}
+
+async function loginTaskSystem() {
+  const client = getTaskSupabase();
+  if (!client) {
+    setTaskSyncStatus("任务系统同步组件还没加载完成，请稍后再试。", "error");
+    return;
+  }
+  const email = ($("#taskSyncEmail")?.value || "").trim();
+  const password = $("#taskSyncPassword")?.value || "";
+  if (!email || !password) {
+    setTaskSyncStatus("请填写任务系统账号邮箱和密码。", "error");
+    return;
+  }
+  setTaskSyncStatus("正在登录任务系统账号…", "info");
+  const { data, error } = await client.auth.signInWithPassword({ email, password });
+  if (error) {
+    setTaskSyncStatus(error.message || "任务系统登录失败。", "error");
+    return;
+  }
+  taskSyncState.user = data.user;
+  localStorage.setItem(TASK_SYNC_EMAIL_KEY, email);
+  $("#taskSyncPassword").value = "";
+  setTaskSyncStatus("已登录。现在可以同步培训任务到任务系统。", "ok");
+  renderTaskSyncPanel();
+}
+
+async function logoutTaskSystem() {
+  const client = getTaskSupabase();
+  if (!client) return;
+  await client.auth.signOut();
+  taskSyncState.user = null;
+  setTaskSyncStatus("已退出任务系统账号。", "info");
+  renderTaskSyncPanel();
+}
+
+async function syncTrainingTasksToTaskSystem() {
+  const client = getTaskSupabase();
+  if (!client || !taskSyncState.user) {
+    setTaskSyncStatus("请先登录任务系统账号。", "error");
+    return;
+  }
+  const startDate = $("#trainingStartDate")?.value || "";
+  if (!parseDateOnly(startDate)) {
+    setTaskSyncStatus("请先选择正确的开训日。", "error");
+    return;
+  }
+  state.trainingStartDate = startDate;
+  save();
+
+  taskSyncState.syncing = true;
+  renderTaskSyncPanel();
+  setTaskSyncStatus("正在读取任务系统云端数据并合并培训任务…", "info");
+
+  const { data: cloudRow, error: readError } = await client
+    .from("user_data")
+    .select("data, updated_at")
+    .eq("user_id", taskSyncState.user.id)
+    .maybeSingle();
+  if (readError) {
+    taskSyncState.syncing = false;
+    renderTaskSyncPanel();
+    setTaskSyncStatus(readError.message || "读取任务系统云端数据失败。", "error");
+    return;
+  }
+
+  const merged = buildTaskSystemPayload(cloudRow?.data);
+  const stamp = new Date().toISOString();
+  const { error: writeError } = await client
+    .from("user_data")
+    .upsert({
+      user_id: taskSyncState.user.id,
+      data: merged,
+      updated_at: stamp,
+    });
+
+  taskSyncState.syncing = false;
+  renderTaskSyncPanel();
+  if (writeError) {
+    setTaskSyncStatus(writeError.message || "写入任务系统失败。", "error");
+    return;
+  }
+
+  const syncedTasks = merged.tasks.filter((task) => task.source === TASK_SYNC_SOURCE).length;
+  const syncedProjects = merged.projects.filter((project) => project.source === TASK_SYNC_SOURCE).length;
+  setTaskSyncStatus(`同步成功：已更新 ${syncedTasks} 个培训任务、${syncedProjects} 个培训项目。打开任务系统并登录同一账号即可查看。`, "ok");
 }
 
 const AI_STUDENT_KEY = "ozonTraining.aiStudentName";
@@ -1873,3 +2216,10 @@ renderNavigation();
 bindActions();
 bindAiActions();
 renderAll();
+
+window.addEventListener("task-supabase-ready", () => {
+  initTaskSyncAuth();
+});
+if (window.__taskSupabase) {
+  initTaskSyncAuth();
+}

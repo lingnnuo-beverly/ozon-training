@@ -1213,6 +1213,87 @@ button {
   line-height: 1.7;
 }
 
+.task-sync-panel {
+  margin-bottom: 22px;
+}
+
+.task-sync-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sync-field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.sync-field span {
+  color: #344454;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sync-field input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fff;
+}
+
+.task-sync-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 10px;
+}
+
+.task-system-link {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.task-system-link:hover {
+  text-decoration: underline;
+}
+
+.task-sync-status {
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fbfa;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.task-sync-status[data-kind="error"] {
+  border-color: #efc1c1;
+  background: #fff6f6;
+  color: var(--danger);
+}
+
+.task-sync-status[data-kind="ok"] {
+  border-color: #bde0cc;
+  background: #f3fbf6;
+  color: var(--ok);
+}
+
+.task-sync-status[data-kind="info"] {
+  border-color: #cce4ef;
+  background: #eef7fb;
+  color: var(--primary);
+}
+
+.badge.ok {
+  background: #e2f3ea;
+  color: #0c5d37;
+}
+
 .ai-shortcut-row {
   display: flex;
   gap: 10px;
