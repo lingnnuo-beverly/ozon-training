@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ozon 8周线上培训系统</title>
+    <link rel="stylesheet" href="./styles.css?v=20260522-ai-teacher-v2" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">OZ</div>
+          <div>
+            <h1>Ozon培训系统</h1>
+            <p>俄罗斯本土店铺 · 中国供应链备货 · 9月上架</p>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="主导航">
+          <button class="nav-item active" data-view="dashboard">总览</button>
+          <button class="nav-item" data-view="course">教程</button>
+          <button class="nav-item" data-view="academy">卖家大学资料</button>
+          <button class="nav-item" data-view="daily">每日任务</button>
+          <button class="nav-item" data-view="practice">实操训练</button>
+          <button class="nav-item" data-view="sku">公司产品</button>
+          <button class="nav-item" data-view="glossary">基础词典</button>
+          <button class="nav-item" data-view="examples">示范作业</button>
+          <button class="nav-item" data-view="assessment">周复盘</button>
+          <button class="nav-item" data-view="project">发货上架</button>
+          <button class="nav-item" data-view="ai">AI老师</button>
+          <button class="nav-item" data-view="resources">资料库</button>
+        </nav>
+
+        <div class="sidebar-card">
+          <span class="label">当前阶段</span>
+          <strong id="currentStage">第1周</strong>
+          <p id="stageHint">平台认知与竞品入门</p>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <h2 id="viewTitle">培训总览</h2>
+            <p id="viewSubtitle">把员工从零基础训练到能参与Ozon上架、运营和选品分析。</p>
+          </div>
+          <div class="top-actions">
+            <button id="exportBtn" class="secondary">导出进度</button>
+            <button id="resetBtn" class="danger">重置</button>
+          </div>
+        </header>
+
+        <section id="dashboard" class="view active">
+          <section class="hero-guide">
+            <div>
+              <span class="eyebrow">给零基础新员工的第一句话</span>
+              <h3>你不是来背Ozon按钮的，你是来学会把一个产品在俄罗斯卖起来。</h3>
+              <p>短期目标：8周内能协助完成Ozon上架、竞品分析、商品资料、利润测算和基础运营。长期目标：从运营助理成长为能理解俄罗斯市场、参与新品开发的人。</p>
+              <div class="hero-actions">
+                <button id="startTodayBtn" class="primary">从今天任务开始</button>
+                <button id="openGlossaryBtn" class="secondary">先看小白词典</button>
+              </div>
+            </div>
+            <div class="outcome-card">
+              <h4>8周后你应该能做到</h4>
+              <ul>
+                <li>看懂Ozon商品页和买家评论</li>
+                <li>拆解竞品并找到机会和风险</li>
+                <li>整理商品卡、图片和俄语关键词</li>
+                <li>计算利润、最低售价和促销空间</li>
+                <li>识别物流、售后、合规和侵权风险</li>
+                <li>制定新品上架后30天运营计划</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="panel learning-map-panel">
+            <div class="panel-head">
+              <div>
+                <h3>学习路线怎么走</h3>
+                <span>先知道平台，再学会上架，再学会卖和开发新品</span>
+              </div>
+            </div>
+            <div id="phaseMap" class="phase-map"></div>
+          </section>
+
+          <section class="panel first-day-panel">
+            <div class="panel-head">
+              <div>
+                <h3>新手第一天只做这4步</h3>
+                <span>不用一次看完所有页面，先建立方向感和第一份输出</span>
+              </div>
+            </div>
+            <div class="first-day-grid">
+              <article>
+                <strong>1. 看懂目标</strong>
+                <p>先记住短期目标是服务8月中国发货入俄、9月俄罗斯本土店铺上架，长期目标是能参与俄罗斯市场新品开发。</p>
+              </article>
+              <article>
+                <strong>2. 查10个基础词</strong>
+                <p>先看SKU、商品卡、转化率、毛利、FBO/FBS/realFBS、评价、佣金、配送、退货、折扣。</p>
+              </article>
+              <article>
+                <strong>3. 做第1周 Day 1</strong>
+                <p>按系统给的官方资料看，不需要自己到处找教程，完成当天任务和小考。</p>
+              </article>
+              <article>
+                <strong>4. 写5行总结</strong>
+                <p>写清今天学了什么、完成什么、发现什么问题、需要老板确认什么、明天做什么。</p>
+              </article>
+            </div>
+            <div class="first-day-actions">
+              <button id="firstDayDailyBtn" class="primary">开始 Day 1</button>
+              <button id="firstDayGlossaryBtn" class="secondary">打开基础词典</button>
+              <button id="firstDaySkuBtn" class="secondary">查看公司产品</button>
+            </div>
+            <p class="calm-note">今天不用看完所有页面，也不用碰真实后台。先完成一个闭环：看资料、做任务、写答案、交付一份能被检查的记录。</p>
+          </section>
+
+          <div class="metrics">
+            <article class="metric">
+              <span>总体进度</span>
+              <strong id="overallProgress">0%</strong>
+              <div class="progress"><div id="overallBar"></div></div>
+            </article>
+            <article class="metric">
+              <span>已完成任务</span>
+              <strong id="taskCount">0 / 0</strong>
+              <div class="progress"><div id="taskBar"></div></div>
+            </article>
+            <article class="metric">
+              <span>周复盘完成</span>
+              <strong id="weeklyReviewCount">0 / 8</strong>
+              <div class="progress"><div id="weeklyReviewBar"></div></div>
+            </article>
+            <article class="metric">
+              <span>距离系统训练结束</span>
+              <strong id="daysLeft">--天</strong>
+              <p>目标结束日：2026-07-17</p>
+            </article>
+          </div>
+
+          <div class="layout-2">
+            <section class="panel">
+              <div class="panel-head">
+                <h3>8周路径</h3>
+                <span>先平台，后运营，再市场</span>
+              </div>
+              <div id="timeline" class="timeline"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <h3>今日记录</h3>
+                <span>每天5行复盘</span>
+              </div>
+              <textarea id="dailyNote" class="note" placeholder="今天学了什么&#10;今天完成了什么&#10;发现的业务问题&#10;需要老板确认的问题&#10;明天最重要的任务"></textarea>
+              <button id="saveNoteBtn" class="primary full">保存今日记录</button>
+            </section>
+          </div>
+        </section>
+
+        <section id="course" class="view">
+          <div class="course-shell">
+            <div class="week-list" id="weekList"></div>
+            <article class="panel course-detail">
+              <div class="panel-head">
+                <div>
+                  <h3 id="weekTitle">第1周</h3>
+                  <span id="weekDates"></span>
+                </div>
+                <span id="weekBadge" class="badge">Ozon基础</span>
+              </div>
+              <h4>学习目标</h4>
+              <ul id="weekGoals"></ul>
+              <h4>本周教程</h4>
+              <div id="tutorialBlocks" class="tutorial-blocks"></div>
+              <h4>Ozon大学参考</h4>
+              <div id="ozonRefs" class="ref-list"></div>
+              <h4>课后练习</h4>
+              <ul id="weekExercises"></ul>
+              <h4>本周交付</h4>
+              <ul id="weekOutputs"></ul>
+              <h4>验收标准</h4>
+              <ul id="weekChecks"></ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="daily" class="view">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h3>每日学习任务</h3>
+                <span>先看指定资料，再完成任务，最后做当天小考</span>
+              </div>
+              <div class="daily-selectors">
+                <select id="dailyWeekSelect" aria-label="选择周次"></select>
+                <select id="dailyDaySelect" aria-label="选择天数"></select>
+              </div>
+            </div>
+            <div class="ai-shortcut-row">
+              <button class="ai-shortcut" data-ai-shortcut="daily">问AI老师：今天任务哪里不懂</button>
+            </div>
+            <div id="dailyLesson" class="daily-lesson"></div>
+          </div>
+        </section>
+
+        <section id="glossary" class="view">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h3>小白基础词典</h3>
+                <span>每个词都解释：是什么意思、在Ozon哪里看到、工作中怎么用</span>
+              </div>
+            </div>
+            <div id="glossaryList" class="glossary-list">
+              <p class="loading-note">正在加载基础词典。如果长时间为空，请按 Command + Shift + R 强制刷新。</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="practice" class="view">
+          <div class="practice-layout">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>系统内实操模拟</h3>
+                  <span>先看官方资料，再在系统内完成模拟填写和判断，不进入真实后台操作</span>
+                </div>
+              </div>
+              <div id="practiceList" class="practice-list"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3 id="practiceTitle">选择一个实操模块</h3>
+                  <span id="practiceHint">按步骤完成模拟练习</span>
+                </div>
+              </div>
+              <div id="practiceDetail" class="practice-detail"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="sku" class="view">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h3>公司产品/SKU专区</h3>
+                <span>把每天学习落到中国备货、俄罗斯入仓和9月本土店铺上架的真实产品上</span>
+              </div>
+              <button id="addSkuBtn" class="secondary">新增SKU</button>
+            </div>
+            <div class="sku-guide">
+              <strong>员工每天至少更新一格。</strong>
+              <p>学习不是独立课程，最终要回到具体SKU：资料是否齐、图片是否够、利润是否算过、入俄和平台合规是否确认、9月是否优先上架。</p>
+              <div class="ai-shortcut-row">
+                <button class="ai-shortcut" data-ai-shortcut="sku">问AI老师：这个SKU还缺什么</button>
+                <button class="ai-shortcut" data-ai-shortcut="profit">问AI老师：利润怎么算</button>
+              </div>
+            </div>
+            <div id="skuTable" class="sku-table"></div>
+            <button id="saveSkuBtn" class="primary">保存SKU资料</button>
+          </div>
+        </section>
+
+        <section id="examples" class="view">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h3>示范作业</h3>
+                <span>照着样例做，知道什么叫合格，什么叫只是填表</span>
+              </div>
+            </div>
+            <div id="exampleList" class="example-list">
+              <p class="loading-note">正在加载示范作业。如果长时间为空，请按 Command + Shift + R 强制刷新。</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="academy" class="view">
+          <div class="academy-layout">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>Ozon卖家大学资料中心</h3>
+                  <span>课程目录、视频清单、学习摘要和官方观看窗口</span>
+                </div>
+              </div>
+              <div id="academyList" class="academy-list"></div>
+            </section>
+
+            <section class="panel viewer-panel">
+              <div class="panel-head">
+                <div>
+                  <h3 id="viewerTitle">课程观看窗口</h3>
+                  <span id="viewerHint">加载官方Ozon课程页面</span>
+                </div>
+                <button id="openOfficialBtn" class="secondary">新标签打开</button>
+              </div>
+              <iframe id="academyFrame" class="academy-frame" title="Ozon官方课程页面"></iframe>
+              <p class="viewer-note">如果官方页面限制内嵌显示，请点击“新标签打开”。课程结构和学习摘要仍可在左侧直接查看。</p>
+            </section>
+          </div>
+        </section>
+
+        <section id="assessment" class="view">
+          <div class="ai-shortcut-row assessment-shortcut">
+            <button class="ai-shortcut" data-ai-shortcut="weekly">问AI老师：本周易错点</button>
+          </div>
+          <div class="assessment-layout">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>本周学习重点</h3>
+                  <span>先看这一周最应该抓住的内容和交付物</span>
+                </div>
+              </div>
+              <select id="weeklyReviewSelect" class="field"></select>
+              <div id="weeklyFocusSummary" class="weekly-focus-summary"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>易错易混重难点</h3>
+                  <span>这一周最容易不理解、做错或混淆的地方</span>
+                </div>
+              </div>
+              <div id="weeklyDifficulties" class="weekly-difficulties"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>简单自测问题</h3>
+                  <span>自己写几句，确认这一周有没有真正看懂</span>
+                </div>
+              </div>
+              <div id="weeklySelfCheck" class="weekly-self-check"></div>
+              <button id="saveWeeklyAnswersBtn" class="primary full">保存自测答案</button>
+            </section>
+          </div>
+        </section>
+
+        <section id="project" class="view">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h3>本土店铺上架与运营推进</h3>
+                <span>培训结束后进入新品上线、履约和数据优化执行期</span>
+              </div>
+            </div>
+            <div id="projectTasks" class="project-grid"></div>
+          </div>
+        </section>
+
+        <section id="ai" class="view">
+          <div class="ai-layout">
+            <section class="panel ai-ask-panel">
+              <div class="panel-head">
+                <div>
+                  <h3>AI老师问答</h3>
+                  <span>围绕课程、中国发货入俄、9月上架、SKU、利润、合规和俄罗斯市场提问</span>
+                </div>
+                <span id="aiServiceStatus" class="badge">检测后端中…</span>
+              </div>
+              <div class="ai-guide">
+                <strong>学习时可以这样问：</strong>
+                <div class="ai-prompt-chips">
+                  <button class="ai-prompt-chip" data-ai-prompt="我今天的任务不知道从哪里开始，请按先后顺序告诉我。">今天任务怎么开始</button>
+                  <button class="ai-prompt-chip" data-ai-prompt="我不懂这个Ozon术语，请用电商小白能听懂的话解释，并告诉我在后台或商品页哪里能看到。">解释一个Ozon词</button>
+                  <button class="ai-prompt-chip" data-ai-prompt="请帮我检查这个SKU在9月Ozon俄罗斯本土店铺上架前还缺哪些资料、图片、利润和合规确认。">检查SKU缺口</button>
+                  <button class="ai-prompt-chip" data-ai-prompt="请帮我把这个问题拆成：先解释、具体步骤、我要记录到哪里。">拆成学习步骤</button>
+                </div>
+              </div>
+              <div class="ai-form">
+                <label class="ai-field">
+                  <span>员工姓名</span>
+                  <input id="aiStudentName" type="text" placeholder="请输入你的姓名，会保存在本机" />
+                </label>
+                <div class="ai-field-row">
+                  <label class="ai-field">
+                    <span>所在周</span>
+                    <select id="aiWeekSelect"></select>
+                  </label>
+                  <label class="ai-field">
+                    <span>所在Day</span>
+                    <select id="aiDaySelect"></select>
+                  </label>
+                  <label class="ai-field">
+                    <span>相关SKU（选填）</span>
+                    <input id="aiSkuCode" type="text" placeholder="例如 SKU001" />
+                  </label>
+                </div>
+                <label class="ai-field">
+                  <span>问题</span>
+                  <textarea id="aiQuestion" placeholder="例如：今天的任务里“类目佣金”怎么查？我们这个SKU上架前还要补哪些资料？"></textarea>
+                </label>
+                <label class="ai-field">
+                  <span>补充上下文（选填）</span>
+                  <textarea id="aiContext" class="ai-context" placeholder="例如：竞品链接、卡住的步骤、老板的要求等"></textarea>
+                </label>
+                <div class="ai-actions">
+                  <button id="aiAskBtn" class="primary">向AI老师提问</button>
+                  <button id="aiClearBtn" class="secondary">清空输入</button>
+                  <span id="aiStatusText" class="ai-status"></span>
+                </div>
+              </div>
+              <div class="ai-answer" id="aiAnswer">
+                <p class="loading-note">还没有回答。先选好周次/Day，写清楚问题，再点“向AI老师提问”。</p>
+              </div>
+            </section>
+            <section class="panel ai-history-panel">
+              <div class="panel-head">
+                <div>
+                  <h3>我的问答历史</h3>
+                  <span>从云端读取你姓名下的历史记录</span>
+                </div>
+                <button id="aiRefreshHistoryBtn" class="secondary">刷新</button>
+              </div>
+              <div class="ai-history" id="aiHistoryList">
+                <p class="loading-note">填写姓名后会自动加载你的历史问答。</p>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section id="resources" class="view">
+          <div class="layout-2">
+            <section class="panel">
+              <div class="panel-head">
+                <h3>官方资料</h3>
+                <span>规则以官方和后台为准</span>
+              </div>
+              <div id="resourceLinks" class="links"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head">
+                <h3>工作方法</h3>
+                <span>适合不懂俄语的新员工</span>
+              </div>
+              <div class="method-list">
+                <p><strong>俄语：</strong>先学商品页、评论、物流和售后词，不先学复杂语法。</p>
+                <p><strong>竞品：</strong>每个商品从商品卡、价格、信任、风险四个角度拆。</p>
+                <p><strong>规则：</strong>第三方经验只能参考，费用、合规、处罚必须回到官方资料核对。</p>
+                <p><strong>复盘：</strong>每天5行总结，每周五口头汇报，8周结束做完整项目报告。</p>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js?v=20260522-ai-teacher-v2"></script>
+  </body>
+</html>
